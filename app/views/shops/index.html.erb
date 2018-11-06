@@ -17,9 +17,12 @@
           <button class="btn btn-default" type="submit">検索</button>
         </span>
       </div>
+      <% if user_signed_in? %>
        <div class="login col-sm-2">ログアウト</div>
+       <% else %>
         <div class="login col-sm-2">ログイン</div>
        <div class="login col-sm-2">新規登録</div>
+    <% end %>
     </header>
     <nav class="nav col">
       <ul class="nav_list">
