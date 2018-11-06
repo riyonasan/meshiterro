@@ -1,0 +1,74 @@
+// Place all the styles related to the Shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.header{
+  margin: 20px;
+}
+.header_title{
+  float: left;
+  font-size: 25px;
+}
+
+.input-group{
+  float: left;
+}
+
+.login{
+  margin-top: 10px;
+  text-align: center;
+  float: left;
+}
+
+.nav ul li{
+  display: inline;
+}
+
+.nav_list{
+  list-style: none;
+  font-size: 20px;
+  padding: 20px;
+  margin-left: 60px;
+}
+
+.nav_list_content{
+  padding: 0 30px;
+  border-right:  solid #D3D3D3 2px;
+}
+
+.nav_list_fin{
+  padding: 30px;
+}
+
+.home_header{
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.home_header_list{
+  list-style: none;
+  margin: 20px;
+  height: 250px;
+}
+
+.home_header_list_content{
+  float: left;
+  /* margin: 20px; */
+}
+
+.home_header_list_content_outer{
+  height: 100%;
+  float: left;
+  display: table;
+}
+
+.home_header_inner{
+  width: 250px;
+  padding-left: 40px;
+  display: table-cell;
+  vertical-align: middle;
+
+}
+
+.home_ranking{
+  float: right;
+}
