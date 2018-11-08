@@ -14,8 +14,9 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: root
-  host: localhost
+  password: <%= ENV['MESHI_PASS'] %>
+  host: <%= ENV['MESHI_HOST'] %>
+  socket: <%= ENV['MESHI_SOCKET'] %>
 
 development:
   <<: *default
