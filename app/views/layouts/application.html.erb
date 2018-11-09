@@ -4,14 +4,15 @@
     <title>Meshiterro</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'application/favicon' %>
     <p class="notice">  <%= notice %></p>
     <p class="alert"> <%= alert %></p>
   </head>
-
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

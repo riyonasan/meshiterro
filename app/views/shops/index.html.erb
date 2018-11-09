@@ -17,10 +17,11 @@
         </span>
       </div>
       <% if user_signed_in? %>
-      <div class="login col-sm-2">ログアウト</div>
+        <div class="login col-sm-2">ようこそ、<%= current_user.nickname %>さん</div>
+        <div class="login col-sm-2">ログアウト</div>
       <% else %>
-      <div class="login col-sm-2">ログイン</div>
-      <div class="login col-sm-2">新規登録</div>
+        <div class="login col-sm-2"><%= link_to 'ログイン', new_user_session_path %></div>
+        <div class="login col-sm-2"><%= link_to '新規登録', new_user_registration_path %></div>
       <% end %>
     </header>
     <nav class="nav col">
@@ -33,7 +34,7 @@
         <li class="nav_list_fin">+</li>
       </ul>
     </nav>
-<div class="home_header">
+    <div class="home_header">
       <div class="home_header_title">今日のラーメン</div>
       <!-- 今日の○○はユーザーによって変更 -->
       <ul class="home_header_list">
