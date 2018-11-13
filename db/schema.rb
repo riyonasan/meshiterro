@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_023943) do
+ActiveRecord::Schema.define(version: 2018_11_13_045318) do
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "area_name"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_11_12_023943) do
     t.string "provider", default: "", null: false
     t.string "uid", default: "", null: false
     t.string "name"
+    t.string "token"
+    t.string "meta"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
