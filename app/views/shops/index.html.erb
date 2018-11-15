@@ -9,7 +9,7 @@
   </head>
   <body>
     <header class="header">
-      <div class="header_title col-sm-6"><%= image_tag 'logo.png' %></div>
+      <div class="header-title col-sm-6"><%= image_tag 'logo.png' %></div>
       <div class="input-group col-sm-4">
         <input type="text" class="form-control" size="20" maxlength="40">
         <span class="input-group-btn">
@@ -25,38 +25,36 @@
       <% end %>
     </header>
     <nav class="nav col">
-      <ul class="nav_list">
-        <li class="nav_list_content">トップ</li>
-        <li class="nav_list_content">ラーメン</li>
-        <li class="nav_list_content">寿司</li>
-        <li class="nav_list_content">定食</li>
-        <li class="nav_list_content">居酒屋</li>
-        <li class="nav_list_fin">+</li>
+      <ul class="nav-list">
+        <li class="nav-list__content">トップ</li>
+        <li class="nav-list__content">ラーメン</li>
+        <li class="nav-list__content">寿司</li>
+        <li class="nav-list__content">定食</li>
+        <li class="nav-list__content">居酒屋</li>
+        <li class="nav-list__fin">+</li>
       </ul>
     </nav>
-    <div class="home_header">
-      <div class="home_header_title">今日のラーメン</div>
-      <!-- 今日の○○はユーザーによって変更 -->
-      <ul class="home_header_list">
-        <li class="home_header_list_content">
+    <div class="home-header">
+      <ul class="home-header-list">
+        <li class="home-header-list__content">
           <a href="" >
             <%= image_tag 'IMG_7513.JPG' , width: '283' %>
-            <div class="home_header_list_title">友喜屋</div>
+            <div class="home-header-list__title">友喜屋</div>
           </a>
         </li>
-        <li class="home_header_list_content">
+        <li class="home-header-list__content">
           <a href="">
             <%= image_tag 'IMG_7512.JPG' , width: '283' %>
-            <div class="home_header_list_title">むてっぽう</div>
+            <div class="home-header-list__title">むてっぽう</div>
           </a>
         </li>
-        <li class="home_header_list_content">
+        <li class="home-header-list__content">
           <a href="">
             <%= image_tag 'IMG_7514.JPG' , width: '283' %>
-            <div class="home_header_list_title">富公(トミコウ)</div>
+            <div class="home-header-list__title">富公(トミコウ)</div>
           </a>
         </li>
-        <li class="home_header_list_content_outer">
+        <li class="home-header-list__content_outer">
           <div class="home_header_inner">本日のピックアップを見る</div>
           <a href="">
           </a>
