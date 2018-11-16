@@ -9,63 +9,72 @@
   </head>
   <body>
     <header class="header">
-      <div class="header_title col-sm-6"><%= image_tag 'logo.png', :size => '260x40' %></div>
-      <div class="input-group col-sm-4">
-        <input type="text" class="form-control" size="20" maxlength="40">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">検索</button>
-        </span>
+      <div class="header_inner">
+        <div class="header_inner__title col-sm-5"><%= image_tag 'logo.png' %></div>
+        <% if user_signed_in? %>
+          <div class="header_inner__login">ようこそ、<%= current_user.nickname %>さん</div>
+          <div class="header_inner__login">ログアウト</div>
+        <% else %>
+          <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
+          <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
+        <% end %>
+        <div class="input-group col-sm-7">
+          <input type="text" class="form-control" size="20" maxlength="40">
+          <span class="input-group-btn">
+            <button class="btn btn-info" type="submit">検索</button>
+          </span>
+        </div>
       </div>
-      <% if user_signed_in? %>
-        <div class="login col-sm-2">ようこそ、<%= current_user.nickname %>さん</div>
-        <div class="login col-sm-2">ログアウト</div>
-      <% else %>
-        <div class="login col-sm-2"><%= link_to 'ログイン', new_user_session_path %></div>
-        <div class="login col-sm-2"><%= link_to '新規登録', new_user_registration_path %></div>
-      <% end %>
     </header>
-    <nav class="nav col">
-      <ul class="nav_list">
-        <li class="nav_list_content">トップ</li>
-        <li class="nav_list_content">ラーメン</li>
-        <li class="nav_list_content">寿司</li>
-        <li class="nav_list_content">定食</li>
-        <li class="nav_list_content">居酒屋</li>
-        <li class="nav_list_fin">+</li>
-      </ul>
-    </nav>
-    <div class="home_header">
-      <div class="home_header_title">今日のラーメン</div>
-      <!-- 今日の○○はユーザーによって変更 -->
-      <ul class="home_header_list">
-        <li class="home_header_list_content">
-          <a href="">
-            <image src="image/IMG_7513.JPG" height="200"></image>
-          </a>
-          <div class="home_header_list_title">友喜屋</div>
-        </li>
-        <li class="home_header_list_content">
-          <a href="">
-            <image src="image/IMG_7512.JPG" height="200"></image>
-          </a>
-          <div class="home_header_list_title">むてっぽう</div>
-        </li>
-        <li class="home_header_list_content">
-          <a href="">
-            <image src="image/IMG_7514.JPG" height="200"></image>
-          </a>
-          <div class="home_header_list_title">富公(トミコウ)</div>
-        </li>
-        <li class="home_header_list_content_outer">
-          <div class="home_header_inner">本日のピックアップを見る</div>
-          <a href="">
-          </a>
-        </li>
-      </ul>
+    <div class="nav">
+      <div class="nav_inner">
+        <ul class="nav_inner_list">
+          <li class="nav_inner_list__content">トップ</li>
+          <li class="nav_inner_list__content">ラーメン</li>
+          <li class="nav_inner_list__content">寿司</li>
+          <li class="nav_inner_list__content">定食</li>
+          <li class="nav_inner_list__content">居酒屋</li>
+          <li class="nav_inner_list__fin">+</li>
+        </ul>
+      </div>
     </div>
-    <div class="home_user_contents">ラーメン</div>
+    <div class="home-header">
+      <div class="home-header_inner">
+        <ul class="list-home">
+          <li class="list-home__content">
+            <a href="" >
+              <%= image_tag 'IMG_7513.JPG' , width: '290' %>
+              <div class="list-home__title">友喜屋</div>
+            </a>
+          </li>
+          <li class="list-home__content">
+            <a href="">
+              <%= image_tag 'IMG_7512.JPG' , width: '290' %>
+              <div class="list-home__title">むてっぽう</div>
+            </a>
+          </li>
+          <li class="list-home__content">
+            <a href="">
+              <%= image_tag 'IMG_7514.JPG' , width: '290' %>
+              <div class="list-home__title">富公(トミコウ)</div>
+            </a>
+          </li>
+          <li class="list-home__content_pickup">
+            <a href="">
+              <p>本日のピックアップ</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_inner">
+        
+      </div>
+    </div>
+    <!-- <div class="home_user_contents">ラーメン</div>
     <div class="home_pr">PR</div>
-    <div class="home_ranking">ランキング</div>
+    <div class="home_ranking">ランキング</div> -->
   </body>
   <footer></footer>
 </html>
