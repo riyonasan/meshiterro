@@ -22,8 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_16_013847) do
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "area_name"
-    t.string "address"
-    t.integer "shop_id"
+    t.integer "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
