@@ -17,7 +17,7 @@
         </span>
       </div>
       <% if user_signed_in? %>
-        <div class="login col-sm-2">ようこそ、<%= current_user.nickname %>さん</div>
+        <div class="login col-sm-2">ようこそ、<%= current_user.email %>さん</div>
         <div class="login col-sm-2"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %> </div>
       <% else %>
         <div class="login col-sm-1"><%= link_to 'ログイン', new_user_session_path %></div>
@@ -52,7 +52,7 @@
           <div class="home_header_list_title">むてっぽう</div>
         </li>
         <li class="home_header_list_content">
-          <a href="">
+          <a href="">y
             <image src="image/IMG_7514.JPG" height="200"></image>
           </a>
           <div class="home_header_list_title">富公(トミコウ)</div>
