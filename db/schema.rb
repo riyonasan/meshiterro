@@ -10,12 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_05_031450) do
+ActiveRecord::Schema.define(version: 2018_11_16_013847) do
+
+  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "area_name"
-    t.integer "postal_code"
-    t.string "address"
+    t.integer "area_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genre_shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "shop_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,9 +47,24 @@ ActiveRecord::Schema.define(version: 2018_11_05_031450) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image_url"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "logs", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "shop_id"
     t.timestamp "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "menu_name"
+    t.integer "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,7 +72,25 @@ ActiveRecord::Schema.define(version: 2018_11_05_031450) do
   create_table "shops", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "shop_name"
     t.integer "area_id"
-    t.integer "genre_id"
+    t.text "shop_detail"
+    t.integer "tel"
+    t.string "address"
+    t.text "address_url"
+    t.integer "postal_code"
+    t.string "regular_holiday"
+    t.string "business_hours"
+    t.integer "comment_id"
+    t.integer "image_id"
+    t.integer "menu_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.boolean "like"
+    t.integer "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -55,8 +109,14 @@ ActiveRecord::Schema.define(version: 2018_11_05_031450) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", default: "名無し"
+    t.string "provider", default: "", null: false
+    t.string "uid", default: "", null: false
+    t.string "name"
+    t.string "token"
+    t.string "meta"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
 end
