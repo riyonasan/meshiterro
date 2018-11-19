@@ -25,15 +25,23 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+
+#ユーザー認証
 gem 'devise'
-gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
+
+#管理画面
 gem 'rails_admin'
 gem 'cancancan'
+
+#環境変数
+gem 'dotenv-rails'
+
+#画像アップロード・圧縮
+gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
