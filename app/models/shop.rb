@@ -1,7 +1,7 @@
 class Shop < ApplicationRecord
   belongs_to :area
   has_many :logs
-  has_many :images
+  has_one :image
   has_many :menus
   has_many :user_shops
   has_many :users, through: :user_shops
