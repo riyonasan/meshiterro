@@ -36,12 +36,24 @@
           <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
           <a href="#likes">いいねした店：<%= @user_like.count %>件</a>
         </div>
-        <div class="likes">
+        <p>&nbsp;</p>
+        <div class="likes row" id="likes">
           <% @liked_shop.each do |shop| %>
-            <p><%= shop.shop_name %>
-              <%= shop.area.area_name %>
-              <% @genre = shop.genres %>
-              <%= @genre.first.genre_name %></p>
+            <div class="likes_inner col-sm-6">
+              <h2 class="likes_inner__title"><%= shop.shop_name %></h2>
+              <%= image_tag 'IMG_7513.JPG' , width: '360' %>
+              <dl class="likes_inner__list">
+                <dt>地域</dt>
+                <dd><%= shop.area.area_name %></dd>
+                <dt>ジャンル</dt>
+                <dd><% @genre = shop.genres %>
+                  <%= @genre.first.genre_name %></dd>
+              </dl>
+              <!-- <p><%= shop.area.area_name %>
+                <% @genre = shop.genres %>
+                <%= @genre.first.genre_name %></p> -->
+              <p>&nbsp;</p>
+            </div>
           <% end %>
         </div>
       </div>
