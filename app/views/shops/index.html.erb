@@ -12,8 +12,8 @@
       <div class="header_inner">
         <div class="header_inner__title col-sm-5"><%= image_tag 'logo.png' %></div>
         <% if user_signed_in? %>
-          <div class="header_inner__login">ようこそ、<%= current_user.nickname %>さん</div>
-          <div class="header_inner__login">ログアウト</div>
+          <div class="header_inner__login"><%= link_to 'プロフィール変更', edit_user_path(current_user) %></div>
+          <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
         <% else %>
           <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
           <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
@@ -25,7 +25,6 @@
           </span>
         </div>
       </div>
-
     </header>
     <div class="nav">
       <div class="nav_inner">
@@ -70,7 +69,6 @@
     </div>
     <div class="content">
       <div class="content_inner">
-        
       </div>
     </div>
     <!-- <div class="home_user_contents">ラーメン</div>

@@ -1,0 +1,110 @@
+// Place all the styles related to the Shops controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  width: 100%;
+}
+.header{
+  width: 100%;
+  position:relative;
+  &_inner{
+    width: 1085px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    &__title{
+      margin: 0;
+      width: 100%;
+      float: left;
+      font-size: 25px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &__login{
+      margin: 10px;
+      text-align: center;
+      float: right;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.user-header{
+  width: 1440px;
+  height: 218px;
+  &_inner{
+    width: 1085px;
+    height: 100%;
+    margin: 0 auto;
+  }
+}
+
+ .list-home{
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &__content{
+    float: left;
+    height: 218px;
+    width: 290px;
+    position: relative;
+    :hover img{
+      opacity: 0.7;
+      filter: alpha(opacity=70);
+      -ms-filter: "alpha(opacity=70)";
+    }
+    &_pickup{
+      background: #f5f7f8;
+      height: 217.4px;
+      width: 215px;
+      float: left;
+      display: table;
+      p{
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+        -ms-filter: "alpha(opacity=70)";
+        margin: 0;
+        vertical-align:middle;
+        text-align: center;
+        line-height: 217.4px;
+      }
+    }
+  }
+  &__title{
+    position: absolute;
+    font-size: 18px;
+    color: #fff;
+    padding: 12px;
+    bottom:0;
+    left: 0;
+  }
+}
+
+.content{
+  width: 100%;
+  height: 1000px;;
+  background: #f5f7f8;
+  &_inner{
+    width: 1085px;
+    height: 1000px;
+    margin: 0 auto;
+    background: #fff;
+
+  }
+}
