@@ -7,6 +7,9 @@ class ShopsController < ApplicationController
       @mastname += @user.try(:nickname)  || '名無し'
       @mastname += 'さん'
     end
+    @shop_1 = Shop.find(1)
+    @shop_2 = Shop.find(2)
+    @shop_3 = Shop.find(3)
   end
 
   def show

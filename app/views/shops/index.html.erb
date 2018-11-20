@@ -53,11 +53,43 @@
     </div>
     <div class="content">
       <div class="content_inner">
+        <div class="content_inner__main">
+          <div class="content_inner__main_top">
+            <a href="" class="content_inner__main_top_title">ラーメン</a>
+            <span></span>
+          </div>
+          <div class="content_inner__main__content">
+            <div class="content_inner__main__content_head">
+              <%= image_tag(@shop_2.image.image.to_s,:height=>"160", :class=>"content_inner__main__content_head_image") %>
+              <div class="content_inner__main__content_head_text"><%= @shop_3.shop_detail %></div>
+            </div>
+          </div>
+        </div>
+        <div class="content_inner__side">
+          <div class="content_inner__side_top">
+            <p>ランキング総合</p>
+          </div>
+          <div class="content_inner__side__content">
+            <%= image_tag(@shop_2.image.image.to_s,:height=>"217") %>
+            <div class="content_inner__side__content__title">
+              <%= @shop_3.shop_detail %>
+            </div>
+          </div>
+          <div class="content_inner__side__content">
+            <%= image_tag(@shop_3.image.image.to_s,:height=>"217") %>
+            <div class="content_inner__side__content__title">
+              <%= @shop_3.shop_detail %>
+            </div>
+          </div>
+          <div class="content_inner__side__content">
+            <%= image_tag(@shop_2.image.image.to_s,:height=>"217") %>
+            <div class="content_inner__side__content__title">
+              <%= @shop_3.shop_detail %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- <div class="home_user_contents">ラーメン</div>
-    <div class="home_pr">PR</div>
-    <div class="home_ranking">ランキング</div> -->
   </body>
   <footer></footer>
 </html>
