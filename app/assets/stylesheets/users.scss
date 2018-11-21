@@ -65,14 +65,16 @@ body {
 
 .content {
   width: 100%;
-  height: 60px;
 
   &_inner {
-    height: 60px;
     margin: 0 auto;
     padding: 0;
     width: 1085px;
+    &_status {
+      height: 400px;
+    }
   }
+
   .likes {
     margin: 0 auto;
     padding: 0;

@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -32,22 +33,24 @@
     </div>
     <div class="content">
       <div class="content_inner">
-        <div class="status"><%= @user.nickname %>さん
+        <div class="content_inner_status row"><%= @user.nickname %>さん
           <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
-          <a href="#likes">いいねした店：<%= @user_like.count %>件</a>
+          <p><a href="#likes">いいねした店：<%= @user_like.count %>件</a></p>
+          <canvas id="likeChart" class="col-sm-6"></canvas>
         </div>
         <p>&nbsp;</p>
         <div class="likes row" id="likes">
           <% @liked_shop.each do |shop| %>
             <div class="likes_inner col-sm-6">
-              <h2 class="likes_inner__title"><%= shop.shop_name %></h2>
+              <h2 class="likes_inner__title"><%= link_to shop.shop_name, shops_show_path(shop), remote: true %></h2>
               <%= image_tag 'IMG_7513.JPG' , width: '360' %>
               <dl class="likes_inner__list">
                 <dt>地域</dt>
                 <dd><%= shop.area.area_name %></dd>
                 <dt>ジャンル</dt>
-                <dd><% @genre = shop.genres %>
-                  <%= @genre.first.genre_name %></dd>
+                <dd><% @genre = shop.genres %><%= @genre.first.genre_name %></dd>
+                <dt>詳細</dt>
+                <dd><%= shop.shop_detail %></dd>
               </dl>
               <!-- <p><%= shop.area.area_name %>
                 <% @genre = shop.genres %>
