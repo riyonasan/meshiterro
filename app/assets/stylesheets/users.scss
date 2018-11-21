@@ -69,9 +69,17 @@ body {
   &_inner {
     margin: 0 auto;
     padding: 0;
-    width: 1085px;
+    width: 80%;
+    &:before {
+      content: "";
+      padding-top: 100%;
+    }
     &_status {
       height: 400px;
+      canvas {
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
   }
 

@@ -3,7 +3,8 @@
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </head>
   <body>
     <header class="header">
@@ -33,10 +34,16 @@
     </div>
     <div class="content">
       <div class="content_inner">
-        <div class="content_inner_status row"><%= @user.nickname %>さん
+        <p><%= @user.nickname %>さん
           <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
-          <p><a href="#likes">いいねした店：<%= @user_like.count %>件</a></p>
-          <canvas id="likeChart" class="col-sm-6"></canvas>
+          <a href="#likes">いいねした店：<%= @user_like.count %>件</a></p>
+        <div class="content_inner_status row">
+          <div class="col-sm-6">
+            <canvas id="likeCount"></canvas>
+          </div>
+          <div class="col-sm-6">
+            <canvas id="likeChart"></canvas>
+          </div>
         </div>
         <p>&nbsp;</p>
         <div class="likes row" id="likes">
@@ -48,7 +55,7 @@
                 <dt>地域</dt>
                 <dd><%= shop.area.area_name %></dd>
                 <dt>ジャンル</dt>
-                <dd><% @genre = shop.genres %><%= @genre.first.genre_name %></dd>
+                <dd><% genre = shop.genres %><%= genre.first.genre_name %></dd>
                 <dt>詳細</dt>
                 <dd><%= shop.shop_detail %></dd>
               </dl>
@@ -64,4 +71,5 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
+  <%= javascript_include_tag "likeChart" %>
 </html>
