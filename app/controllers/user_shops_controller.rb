@@ -1,0 +1,2 @@
+class UserShopsController < ApplicationController
+end
