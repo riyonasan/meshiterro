@@ -67,4 +67,7 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
+#Ignore local uploads image files
+/public/uploads
+
 # End of https://www.gitignore.io/api/rails
