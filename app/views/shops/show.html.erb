@@ -1,3 +1,11 @@
-<img src="<%= @shop.images.first.image %>" width="290">
-<%= @shop.shop_name %>
-<%= render partial: 'shops/like' %>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= javascript_include_tag 'like_change.js' %>
+</head>
+<body>
+  <img src="<%= @shop.images.first.image %>" width="290">
+  <%= @shop.shop_name %>
+  <%= image_tag 'white_heart.png', height: '80', id: 'heart_img', onclick: "LinkClick()"%>
+</body>
+</html>
