@@ -9,5 +9,13 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params[:id])
+
+    if user_signed_in?
+      @user_shop = UserShop.find_by(user_id: current_user.id, shop_id: @shop.id)
+      if @user_shop.nil?
+        @user_shop = UserShop.create(user_id: current_user.id, shop_id: @shop.id, like: 0)
+      end
+    end
   end
+
 end

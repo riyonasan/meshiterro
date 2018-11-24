@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   }
   root 'shops#index'
   resources :users
-  resources :shops
+  resources :shops do
+    resources :user_shops, only: [:update]
+  end
 end
