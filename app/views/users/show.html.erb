@@ -34,13 +34,12 @@
     </div>
     <div class="content">
       <div class="content_inner">
-        <p><%= @user.nickname %>さん
-          <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
-          <a href="#likes">いいねした店：<%= @user_like.count %>件</a></p>
         <div class="content_inner_status row">
           <div class="col-sm-6">
-            <canvas id="likeCount"></canvas>
-          </div>
+            <h2><%= @user.nickname %>さん</h2>
+            <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
+            <a href="#likes">行きたい<%= fa_icon 'heart', class: "fa-pink" %>した店：<%= @user_like.count %>件</a><br>
+            <a href="#rates">行った<%= fa_icon 'star', class: "fa-yellow" %>した店：件</a></div>
           <div class="col-sm-6">
             <canvas id="likeChart"></canvas>
           </div>

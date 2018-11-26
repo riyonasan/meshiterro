@@ -5,6 +5,13 @@ body {
   width: 100%;
 }
 
+.fa-pink {
+  color: #ff5473
+}
+.fa-yellow {
+  color: #fff855
+}
+
 .header {
   left: 0;
   position: relative;
@@ -71,12 +78,16 @@ body {
     padding: 0;
     width: 80%;
     &:before {
-      content: "";
+      content: '';
       padding-top: 100%;
     }
     &_status {
       height: 400px;
-      canvas {
+      .likeCount,
+      div {
+        width: 80%;
+        margin-top: auto;
+        margin-bottom: auto;
         margin-left: auto;
         margin-right: auto;
       }
