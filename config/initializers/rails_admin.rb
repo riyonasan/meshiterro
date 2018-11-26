@@ -1,5 +1,9 @@
 RailsAdmin.config do |config|
 
+  # config.model 'Shop' do
+  #   sort_by :shop_name
+  # end
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -37,5 +41,11 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+  config.model 'Image' do
+    edit do
+      field :shop_id, :integer
+      field :image, :carrierwave
+    end
   end
 end
