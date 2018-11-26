@@ -11,7 +11,7 @@
       <div class="header_inner">
         <div class="header_inner__title col-sm-5"><%= image_tag 'logo.png' %></div>
         <% if user_signed_in? %>
-          <div class="header_inner__login"><%= link_to 'プロフィール変更', edit_user_path(current_user) %></div>
+          <div class="header_inner__login"><a href="#">マイページ</a></div>
           <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
         <% else %>
           <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
@@ -36,10 +36,18 @@
       <div class="content_inner">
         <div class="content_inner_status row">
           <div class="col-sm-6">
-            <h2><%= @user.nickname %>さん</h2>
+            <h2>卍<%= @user.nickname %>さん卍</h2>
+            <div><%= fa_icon 'chevron-circle-right' %><%= link_to 'プロフィール編集', edit_user_path(current_user) %></div>
             <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
-            <a href="#likes">行きたい<%= fa_icon 'heart', class: "fa-pink" %>した店：<%= @user_like.count %>件</a><br>
-            <a href="#rates">行った<%= fa_icon 'star', class: "fa-yellow" %>した店：件</a></div>
+            <a href="#likes"><%= fa_icon 'heart', class: "fa-pink" %>行きたい店：<%= @user_like.count %>件</a><br>
+            <a href="#rates"><%= fa_icon 'star', class: "fa-yellow" %>行った店：<%= @rated_shop.count%>件</a>
+            <div>平均評価：</div>
+            <span class="rating">
+              <span class="rating_front" style="width: <%=@rates%>%">★★★★★
+              </span>
+              <span class="rating_back">★★★★★</span>
+            </span>
+          </div>
           <div class="col-sm-6">
             <canvas id="likeChart"></canvas>
           </div>
@@ -51,6 +59,27 @@
               <h2 class="likes_inner__title"><%= link_to shop.shop_name, shops_show_path(shop), remote: true %></h2>
               <%= image_tag 'IMG_7513.JPG' , width: '360' %>
               <dl class="likes_inner__list">
+                <dt>地域</dt>
+                <dd><%= shop.area.area_name %></dd>
+                <dt>ジャンル</dt>
+                <dd><% genre = shop.genres %><%= genre.first.genre_name %></dd>
+                <dt>詳細</dt>
+                <dd><%= shop.shop_detail %></dd>
+              </dl>
+              <!-- <p><%= shop.area.area_name %>
+                <% @genre = shop.genres %>
+                <%= @genre.first.genre_name %></p> -->
+              <p>&nbsp;</p>
+            </div>
+          <% end %>
+        </div>
+        <p>&nbsp;</p>
+        <div class="rated row" id="rates">
+          <% @rated_shop.each do |shop| %>
+            <div class="rated_inner col-sm-6">
+              <h2 class="rated_inner__title"><%= link_to shop.shop_name, shops_show_path(shop), remote: true %></h2>
+              <%= image_tag 'IMG_7513.JPG' , width: '360' %>
+              <dl class="rated_inner__list">
                 <dt>地域</dt>
                 <dd><%= shop.area.area_name %></dd>
                 <dt>ジャンル</dt>

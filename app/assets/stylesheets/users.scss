@@ -5,12 +5,33 @@ body {
   width: 100%;
 }
 
+// FontAwesome
 .fa-pink {
   color: #ff5473
 }
 .fa-yellow {
   color: #fff855
 }
+// FontAwesomeここまで
+
+// 星評価
+.rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+  &_front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #fff855;
+  }
+  &_back {
+    color: #ccc;
+  }
+}
+// 星評価ここまで
 
 .header {
   left: 0;
@@ -83,8 +104,7 @@ body {
     }
     &_status {
       height: 400px;
-      .likeCount,
-      div {
+      .likeChart{
         width: 80%;
         margin-top: auto;
         margin-bottom: auto;
@@ -94,7 +114,8 @@ body {
     }
   }
 
-  .likes {
+
+  .likes,.rated {
     margin: 0 auto;
     padding: 0;
     width: 85%;
@@ -109,7 +130,7 @@ body {
 
       h2::after {
         position: absolute;
-        content: "";
+        content: '';
         border-bottom: solid 4px #676767;
         bottom: -4px;
         width: 30%;
