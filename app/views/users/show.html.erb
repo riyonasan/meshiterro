@@ -57,7 +57,7 @@
           <% @liked_shop.each do |shop| %>
             <div class="likes_inner col-sm-6">
               <h2 class="likes_inner__title"><%= link_to shop.shop_name, shops_show_path(shop), remote: true %></h2>
-              <%= image_tag 'IMG_7513.JPG' , width: '360' %>
+              <%= image_tag shop.images.first.to_s , width: '360' %>
               <dl class="likes_inner__list">
                 <dt>地域</dt>
                 <dd><%= shop.area.area_name %></dd>
