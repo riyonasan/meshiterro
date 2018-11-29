@@ -54,10 +54,18 @@
         </div>
         <p>&nbsp;</p>
         <div class="likes row" id="likes">
+          <div class="likes">
+            <h2><%= fa_icon 'heart', class: "fa-pink" %>行きたい店<%= fa_icon 'heart', class: "fa-pink"%></h2>
+            <br>
+          </div>
           <% @liked_shop.each do |shop| %>
             <div class="likes_inner col-sm-6">
               <h2 class="likes_inner__title"><%= link_to shop.shop_name, shops_show_path(shop), remote: true %></h2>
-              <%= image_tag shop.images.first.to_s , width: '360' %>
+              <% if Image.exists?(:shop_id => shop.id) %>
+                <%= image_tag shop.images.first.image.to_s , width: '360' %>
+              <% else %>
+                <%= image_tag 'notfound.png', width: '360' %>
+              <% end %>
               <dl class="likes_inner__list">
                 <dt>地域</dt>
                 <dd><%= shop.area.area_name %></dd>
@@ -75,10 +83,18 @@
         </div>
         <p>&nbsp;</p>
         <div class="rated row" id="rates">
+          <div class="rated">
+            <h2><%= fa_icon 'star', class: "fa-yellow" %>行った店<%= fa_icon 'star', class: "fa-yellow" %></h2>
+            <br>
+          </div>
           <% @rated_shop.each do |shop| %>
             <div class="rated_inner col-sm-6">
               <h2 class="rated_inner__title"><%= link_to shop.shop_name, shops_show_path(shop), remote: true %></h2>
-              <%= image_tag 'IMG_7513.JPG' , width: '360' %>
+              <% if Image.exists?(:shop_id => shop.id) %>
+                <%= image_tag shop.images.first.image.to_s , width: '360' %>
+              <% else %>
+                <%= image_tag 'notfound.png', width: '360' %>
+              <% end %>
               <dl class="rated_inner__list">
                 <dt>地域</dt>
                 <dd><%= shop.area.area_name %></dd>
