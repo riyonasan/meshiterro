@@ -1,6 +1,7 @@
 // Place all the styles related to the Shops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 body {
   width: 100%;
 }
@@ -22,7 +23,7 @@ body {
   font-size: 25px;
   &_front {
     position: absolute;
-    top: 0;
+    // top: 0;
     left: 0;
     overflow: hidden;
     color: #fff855;
@@ -32,6 +33,10 @@ body {
   }
 }
 // 星評価ここまで
+img {
+  width: 90%;
+  object-fit: cover;
+}
 
 .header {
   left: 0;
@@ -42,7 +47,7 @@ body {
     height: 100px;
     margin: 0 auto;
     padding: 0;
-    width: 1085px;
+    width: 80%;
     &__title {
       float: left;
       font-size: 25px;
@@ -67,7 +72,7 @@ body {
 }
 
 .nav_inner {
-  width: 1085px;
+  width: 80%;
   height: 60px;
   margin: 0 auto;
   padding: 0;
@@ -97,7 +102,7 @@ body {
   &_inner {
     margin: 0 auto;
     padding: 0;
-    width: 80%;
+    width: 100%;
     &:before {
       content: '';
       padding-top: 100%;
