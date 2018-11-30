@@ -67,6 +67,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chart-js-rails (0.1.6)
+      railties (> 3.1)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (2.1.0)
@@ -105,6 +107,10 @@ GEM
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gon (6.2.1)
+      actionpack (>= 3.0)
+      multi_json
+      request_store (>= 1.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -259,6 +265,8 @@ GEM
       ffi (>= 0.5.0, < 2)
     regexp_parser (1.2.0)
     remotipart (1.4.2)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -334,11 +342,14 @@ DEPENDENCIES
   cancancan
   capybara (>= 2.15)
   carrierwave
+  chart-js-rails
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
   duktape
+  font-awesome-rails
+  gon
   jbuilder (~> 2.5)
   mysql2 (>= 0.4.4, < 0.6.0)
   omniauth
