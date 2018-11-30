@@ -5,18 +5,21 @@
 <body>
   <img src="<%= @shop.images.first.image %>" width="290">
   <%= @shop.shop_name %>
-  <%= image_tag 'white_heart.png', height: '80', id: 'heart_img', onclick: "LinkClick()"%>
+  <% if user_signed_in? %>
+      <%= form_with(model: @shop, id:"user_like") do |f| %>
+        <div id="updated_by_ajax" >
+          <% if @user_shop.like = true %>
+            <%= image_submit_tag 'heart.png', height: '80'%>
+            <!-- image_submit_tagきもい -->            
+          <% else %>
+            <%= image_submit_tag 'white_heart.png', height: '80'%>
+          <% end %>
+        </div>
+      <% end %>
+  <% else %>
+    <%= image_tag 'white_heart.png', height: '80'%>
+  <% end %>
 
-  <div id="request_ajax_update" >
-    <%= form_tag(shop_user_shop_path(@shop, @user_shop), method: :patch, remote: true) { %>
-      <%= text_field :data, :text %>
-      <%= submit_tag 'Post AJAX' %>
-    <% } %>
-  </div>
 
-  <hr>
-  <div id="updated_by_ajax" >
-    DEFAULT
-  </div>
 </body>
 </html>

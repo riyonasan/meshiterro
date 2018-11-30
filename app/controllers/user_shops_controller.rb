@@ -1,9 +1,16 @@
 class UserShopsController < ApplicationController
   def update
-    @shop = Shop.find(params[:id])
-    @user_shop = UserShop.find_by(user_id: current_user.id, shop_id: @shop.id)
-    post_text = params[:data][:text]
-    results = { :message => post_text }
-    render partial: 'shops/user_shop', locals: { :results => results }
+    # @user_shop = UserShop.find(params[:id])
+    # @shop = @user_shop.shop
+
+    # post_text = params[:data][:text]
+    # results = { :message => post_text }
+    # respond_to do |format|
+      # format.html
+      # format.json {render json: @user_shop}
+      # format.partial { render partial:'shops/user_shop'}
+    # end
+
+    # render 'update', formats: 'json', handlers: 'jbuilder'
   end
 end
