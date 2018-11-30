@@ -11,6 +11,7 @@
     <header class="header container-fluid">
       <div class="header_inner">
         <div class="header_inner__title col-md-5"><%= image_tag 'logo.png' %></div>
+        <br class="d-inline d-sm-none"/>
         <% if user_signed_in? %>
           <div class="header_inner__login"><a href="#">マイページ</a></div>
           <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
@@ -26,36 +27,37 @@
         </div>
       </div>
     </header>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <ul class="navbar navbar_nav">
-        <li><a href="#">Statistics</a></li>
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#unsubscribe">Unsubscribe</a></li>
+    <div class="navbar navbar-inverse container">
+      <ul class="navbar navbar_nav row">
+        <li class="col-md-4"><a href="#profile">プロフィール</a></li>
+        <li class="col-md-4"><a href="#likes">行きたい</a></li>
+        <li class="col-md-4"><a href="#rates">行った</a></li>
       </ul>
     </div>
     <div class="content container-fluid">
       <div class="content_inner">
-        <div class="content_inner_status row">
+        <div class="content_inner_status row" id="profile">
           <div class="col-md-6">
             <h2>卍<%= @user.nickname %>さん卍</h2>
             <div><%= fa_icon 'chevron-circle-right' %><%= link_to 'プロフィール編集', edit_user_path(current_user) %></div>
             <!-- <%= User.find_by_sql("SELECT COUNT(*) FROM user_shops INNER JOIN users ON @user.id = user_shops.user_id WHERE user_shops.like IS TRUE") %> -->
             <a href="#likes"><%= fa_icon 'heart', class: "fa-pink" %>行きたい店：<%= @user_like.count %>件</a><br>
             <a href="#rates"><%= fa_icon 'star', class: "fa-yellow" %>行った店：<%= @rated_shop.count%>件</a>
-            <div>平均評価：</div>
-            <span class="rating">
-              <span class="rating_front" style="width: <%=@rates%>%">★★★★★
+            <div class="__rating">平均評価：<br class="d-inline d-sm-none"/>
+              <span class="rating">
+                <span class="rating_front" style="width: <%=@rates%>%">★★★★★
+                </span>
+                <span class="rating_back">★★★★★</span>
               </span>
-              <span class="rating_back">★★★★★</span>
-            </span>
+            </div>
           </div>
           <div class="col-md-6">
             <canvas id="likeChart"></canvas>
           </div>
         </div>
         <p>&nbsp;</p>
-        <div class="likes row" id="likes">
-          <div class="likes">
+        <div class="likes row">
+          <div class="likes" id="likes">
             <h2><%= fa_icon 'heart', class: "fa-pink" %>行きたい店<%= fa_icon 'heart', class: "fa-pink"%></h2>
             <br>
           </div>
@@ -83,8 +85,8 @@
           <% end %>
         </div>
         <p>&nbsp;</p>
-        <div class="rated row" id="rates">
-          <div class="rated">
+        <div class="rated row">
+          <div class="rated" id="rates">
             <h2><%= fa_icon 'star', class: "fa-yellow" %>行った店<%= fa_icon 'star', class: "fa-yellow" %></h2>
             <br>
           </div>
