@@ -11,9 +11,7 @@ Rails.application.routes.draw do
   get 'shops/show'
 
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'shops#index'
-  get 'shops/show'
-
-  resources :shops
+  resources :shops do
+    resources :user_shops, only: [:update]
+  end
 end
