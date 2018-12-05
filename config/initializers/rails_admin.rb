@@ -1,5 +1,9 @@
 RailsAdmin.config do |config|
 
+  # config.model 'Shop' do
+  #   sort_by :shop_name
+  # end
+
   ### Popular gems integration
 
   ## == Devise ==
