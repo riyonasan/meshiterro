@@ -26,12 +26,8 @@ gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
-gem 'cancancan'
 gem 'chart-js-rails'
 gem 'devise'
-gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'gon'
 
@@ -39,11 +35,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
-gem 'rails_admin'
 gem 'carrierwave'
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
 #管理画面
 gem 'rails_admin'
@@ -51,9 +43,6 @@ gem 'cancancan'
 
 #環境変数
 gem 'dotenv-rails'
-
-#画像アップロード・圧縮
-gem 'carrierwave'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
