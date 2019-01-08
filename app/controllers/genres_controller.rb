@@ -1,4 +1,7 @@
 class GenresController < ApplicationController
-  def index
+  def ramen
+  end
+
+  def sushi
   end
 end

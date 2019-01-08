@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   resources :shops do
     resources :user_shops, only: [:update]
   end
+
+  namespace :genres do
+    match "ramen", :via => :get
+    match "sushi", :via => :get
+  end
 end
