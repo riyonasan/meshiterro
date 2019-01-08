@@ -28,9 +28,12 @@
       </div>
     </header>
     <div class="content">
-      <div class="content_ramen">
-        <img src="<%= @square_img_url %>" height="217">
-      </div>
+      <li class="content__ramen">
+        <%= image_tag(@images[0])%>
+      </li>
+      <li class="content__ramen">
+        <%= image_tag(@images[1])%>
+      </li>
     </div>
   </body>
   <footer></footer>
