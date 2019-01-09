@@ -79,24 +79,7 @@
           <div class="content_inner__side_top">
             <p>ランキング総合</p>
           </div>
-          <div class="content_inner__side__content">
-              <img src="<%= @shop_2.images.first.image %>" height="217">
-            <div class="content_inner__side__content__title">
-              <%= @shop_3.shop_detail %>
-            </div>
-          </div>
-          <div class="content_inner__side__content">
-              <img src="<%= @shop_2.images.first.image %>" height="217">
-            <div class="content_inner__side__content__title">
-              <%= @shop_3.shop_detail %>
-            </div>
-          </div>
-          <div class="content_inner__side__content">
-              <img src="<%= @shop_2.images.first.image %>" height="217">
-            <div class="content_inner__side__content__title">
-              <%= @shop_3.shop_detail %>
-            </div>
-          </div>
+          <%= render partial: 'shops/rank_shop' ,collection: @rank_shops %>
         </div>
       </div>
     </div>

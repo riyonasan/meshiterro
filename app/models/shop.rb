@@ -8,4 +8,9 @@ class Shop < ApplicationRecord
   has_many :genre_shops
   has_many :genres, through: :genre_shops
   accepts_nested_attributes_for :user_shops
+
+  def index_image
+    images.rectangle.first.image.to_s
+  end
+  
 end
