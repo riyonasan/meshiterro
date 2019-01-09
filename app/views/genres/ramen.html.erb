@@ -28,12 +28,7 @@
       </div>
     </header>
     <div class="content">
-      <li class="content__ramen">
-        <%= image_tag(@images[0])%>
-      </li>
-      <li class="content__ramen">
-        <%= image_tag(@images[1])%>
-      </li>
+      <%= render partial: 'genres/image' ,collection: @images %>
     </div>
   </body>
   <footer></footer>
