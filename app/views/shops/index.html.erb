@@ -31,8 +31,8 @@
       <div class="nav_inner">
         <ul class="nav_inner_list">
           <li class="nav_inner_list__content">トップ</li>
-          <li class="nav_inner_list__content">ラーメン</li>
-          <li class="nav_inner_list__content">寿司</li>
+          <li class="nav_inner_list__content"><%= link_to 'ラーメン',genres_ramen_path %></li>
+          <li class="nav_inner_list__content"><%= link_to '寿司',genres_sushi_path %></li>
           <li class="nav_inner_list__content">定食</li>
           <li class="nav_inner_list__content">居酒屋</li>
           <li class="nav_inner_list__fin">+</li>
@@ -56,7 +56,7 @@
 
         <div class="content_inner__main">
           <div class="content_inner__main_top">
-            <a href="" class="content_inner__main_top_title">ラーメン</a>
+            <%= link_to 'ラーメン',genres_ramen_path, class: "content_inner__main_top_title"%>
             <span></span>
           </div>
           <div class="content_inner__main__content">
@@ -79,24 +79,7 @@
           <div class="content_inner__side_top">
             <p>ランキング総合</p>
           </div>
-          <div class="content_inner__side__content">
-              <img src="<%= @shop_2.images.first.image %>" height="217">
-            <div class="content_inner__side__content__title">
-              <%= @shop_3.shop_detail %>
-            </div>
-          </div>
-          <div class="content_inner__side__content">
-              <img src="<%= @shop_2.images.first.image %>" height="217">
-            <div class="content_inner__side__content__title">
-              <%= @shop_3.shop_detail %>
-            </div>
-          </div>
-          <div class="content_inner__side__content">
-              <img src="<%= @shop_2.images.first.image %>" height="217">
-            <div class="content_inner__side__content__title">
-              <%= @shop_3.shop_detail %>
-            </div>
-          </div>
+          <%= render partial: 'shops/rank_shop' ,collection: @rank_shops %>
         </div>
       </div>
     </div>
