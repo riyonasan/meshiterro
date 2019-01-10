@@ -3,13 +3,21 @@ class Shop < ApplicationRecord
   has_many :logs
   has_many :images
   has_many :menus
-  has_many :user_shops, dependent: :destroy
-  has_many :users, through: :user_shops
+  has_many :likes, dependent: :destroy
+  has_many :users, through: :likes
+  has_many :rates, dependent: :destroy
+  has_many :users, through: :rates
   has_many :genre_shops
   has_many :genres, through: :genre_shops
-  accepts_nested_attributes_for :user_shops
+  accepts_nested_attributes_for :likes
+  accepts_nested_attributes_for :rates
 
-  # scope :genre, -> (id){ where('id = ?', id) }
+  # あとで消す
+  has_many :user_shops, dependent: :destroy
+  has_many :users, through: :user_shops
+  accepts_nested_attributes_for :user_shops
+  # ..
+
 
   def index_rectangle_image
     images.rectangle.first.image.to_s

@@ -31,18 +31,43 @@
     <div class="shop_header_inner">
       <!-- パンくず -->
       <ul id="bread-crumb-list">
-        <li><a href="">メシテロ石川</a></li>&nbsp;&gt;&nbsp;
-        <li><a href="">ラーメン</a></li>&nbsp;&gt;&nbsp;
-        <li><a href="">麺屋大河</a></li>
+        <li><%= link_to 'メシテロ石川',root_path%></li>&nbsp;&gt;&nbsp;
+        <li><%= @genre.genre_name %></li>&nbsp;&gt;&nbsp;
+        <li><%= @shop.shop_name%></li>
         <hr>
         </ul>
-      <h1 class="shop_header_inner_title">麺屋大河</h1>
+      <h1 class="shop_header_inner_title"><%= @shop.shop_name %></h1>
+
       <!-- button -->
       <div class="fav_box">
+        <!-- 行きたい -->
+        <% if user_signed_in? %>
+          <div id="updated_by_ajax" >
+            <%= image_tag 'heart.png', height: '20'%>
+            行きたい
+            <%= @shop.likes_count%>
+          </div>
+        <% else %>
+          <%= image_tag 'white_heart.png', height: '20'%>
+          行きたい<%= @shop.likes_count%>
+        <% end %>
+
+        <!-- 行った -->
+        <% if user_signed_in? %>
+          <%= image_tag 'heart.png', height: '20'%>
+          行った
+        <% else %>
+          <%= image_tag 'white_heart.png', height: '20'%>
+          行った
+        <% end %>
+      <!--
       <%= image_tag 'ikitai.png', class: "fav_button", ontouchstart:""%>
       <%= image_tag 'itta.png', class: "fav_button", ontouchstart:""%>
+      -->
+      <!-- 行った -->
       </div><br>
-      めんやたいが<br>
+
+      <%= @shop.hurigana%><br>
       <!-- rating -->
       <div class="star_rating">
         <div class="star_rating_front" style="width: 50%">★★★★★</div>
@@ -61,19 +86,19 @@
   <div class="shop">
     <div class="shop_inner">
     <div class="shop_inner_main">
-      <%= image_tag '1.jpg', class: "bigimg" %>
+      <%= image_tag(@shop.index_rectangle_image, class: "bigimg") %>
       <div class="inline">
-        <%= image_tag '1.jpg', class: "smallimg" %>
-        <%= image_tag '2.jpg', class: "smallimg" %>
-        <%= image_tag '3.jpg', class: "smallimg" %>
-        <%= image_tag '4.jpg', class: "smallimg" %>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
         <br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a
       </div>
     </div>
     <div class="shop_inner_side">
       <div class="sticky">
         <%= image_tag 'phone.png'%>
-        <h2>000-0000-0000</h2>
+        <h2><%= @shop.tel %></h2>
         <h3>周囲のお店ランキング</h3>
         <%= image_tag 'kagura.jpg', class: "rank" %>
       </div>
