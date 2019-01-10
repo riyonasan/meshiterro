@@ -31,9 +31,9 @@
     <div class="shop_header_inner">
       <!-- パンくず -->
       <ul id="bread-crumb-list">
-        <li><a href="">メシテロ石川</a></li>&nbsp;&gt;&nbsp;
-        <li><a href="">ラーメン</a></li>&nbsp;&gt;&nbsp;
-        <li><a href="">麺屋大河</a></li>
+        <li><%= link_to 'メシテロ石川',root_path%></li>&nbsp;&gt;&nbsp;
+        <li><%= @genre.genre_name %></li>&nbsp;&gt;&nbsp;
+        <li><%= @shop.shop_name%></li>
         <hr>
         </ul>
       <h1 class="shop_header_inner_title">麺屋大河</h1>
