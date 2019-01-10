@@ -8,6 +8,25 @@
   <title>メシテロ石川</title>
 </head>
 <body>
+  <header class="header">
+    <div class="header_inner">
+      <div class="header_inner__title col-sm-5"><%= image_tag 'logo.png' %></div>
+      <% if user_signed_in? %>
+        <div class="header_inner__login"><%= link_to 'マイページ', user_path(current_user) %></div>
+        <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+
+      <% else %>
+        <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
+        <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
+      <% end %>
+      <div class="input-group col-sm-7">
+        <input type="text" class="form-control" size="20" maxlength="40">
+        <span class="input-group-btn">
+          <button class="btn btn-info" type="submit">検索</button>
+        </span>
+      </div>
+    </div>
+  </header>
   <div class="shop_header">
     <div class="shop_header_inner">
       <!-- パンくず -->
