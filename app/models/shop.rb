@@ -9,8 +9,6 @@ class Shop < ApplicationRecord
   has_many :genres, through: :genre_shops
   accepts_nested_attributes_for :user_shops
 
-  # scope :genre, -> (id){ where('id = ?', id) }
-
   def index_rectangle_image
     images.rectangle.first.image.to_s
   end
