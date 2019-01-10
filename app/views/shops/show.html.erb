@@ -42,20 +42,14 @@
       <div class="fav_box">
         <!-- 行きたい -->
         <% if user_signed_in? %>
-          <%= link_to(@shop, id:"user_like", method: :patch , remote: true) do %>
-            <div id="updated_by_ajax" >
-              <% if @user_shop.like == true %>
-                <%= image_tag 'heart.png', height: '20'%>
-              <% elsif @user_shop.like == false %>
-                <%= image_tag 'white_heart.png', height: '20'%>
-              <% end %>
-              行きたい
-              <%= @shop.likes_count%>
-            </div>
-          <% end %>
+          <div id="updated_by_ajax" >
+            <%= image_tag 'heart.png', height: '20'%>
+            行きたい
+            <%= @shop.likes_count%>
+          </div>
         <% else %>
           <%= image_tag 'white_heart.png', height: '20'%>
-          行きたい
+          行きたい<%= @shop.likes_count%>
         <% end %>
 
         <!-- 行った -->
