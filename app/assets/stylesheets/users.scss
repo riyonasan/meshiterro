@@ -66,6 +66,76 @@ img {
   object-fit: cover;
 }
 
+.login_body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 100vh;
+  background-image: url(/images/bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+
+
+.login {
+  height: 65%;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255,0.8);
+  margin-right: auto;
+  margin-left: auto;
+  width: auto;
+  text-align: center;
+  button[type="submit"],
+  input {
+    width: 70%;
+  }
+  &_links {
+    width: 70%;
+    margin: auto;
+    &__register {
+      float: left;
+    }
+    &__forget {
+      text-align: right;
+    }
+    &__google {
+      width: 300px;
+    }
+  }
+
+  &__logo {
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  &__field {
+    font-size: 120%;
+    margin: 5px auto;
+  }
+}
+
+.square_btn {
+    font-size: 110%;
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    background-color: #fff;
+    color: #ed0000;
+    border: solid 2px #ed0000;
+    border-radius: 3px;
+    transition: .4s;
+    // margin-top: 5%;
+    margin-bottom: 5px;
+    &:hover{
+      background: #ed0000;
+      color: #fff;
+    }
+}
+
+
 .header {
   left: 0;
   position: relative;
