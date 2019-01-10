@@ -4,6 +4,7 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.includes(:images).limit(3)
+
     @rank_shops = Shop.includes(:images).limit(3)
 
     # 以下あとで直す
