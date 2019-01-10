@@ -41,36 +41,8 @@
       <!-- button -->
       <div class="fav_box">
         <!-- 行きたい -->
-        <% if user_signed_in? %>
-
-          <% if @shop.like_user(current_user.id)%>
-
-            <%= link_to(shop_like_path(@shop), id:"user_like", method: :delete) do %>
-              <div id="updated_by_ajax" >
-                <%= image_tag 'heart.png', height: '20'%>
-                行きたい
-                <%= @shop.likes_count%>
-              </div>
-            <% end %>
-
-          <% else %>
-
-            <%= link_to(shop_likes_path(@shop), id:"user_like", method: :post) do %>
-              <div id="updated_by_ajax" >
-                <%= image_tag 'white_heart.png', height: '20'%>
-                行きたい
-                <%= @shop.likes_count%>
-              </div>
-            <% end %>
-
-          <% end %>
-        <% else %>
-
-          <%= image_tag 'white_heart.png', height: '20'%>
-          行きたい<%= @shop.likes_count%>
-          
-        <% end %>
-
+        <%= render partial: './likes/like' , locals: { shop: @shop } %>
+        
         <!-- 行った -->
         <% if user_signed_in? %>
           <%= image_tag 'heart.png', height: '20'%>
