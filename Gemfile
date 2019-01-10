@@ -43,23 +43,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 
-
-#管理画面
-gem 'rails_admin'
-gem 'cancancan'
-
-#環境変数
-gem 'dotenv-rails'
-
-#画像アップロード・圧縮
-gem 'carrierwave'
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'pry-rails'
-  gem 'pry-byebug'
-  gem 'pry-doc'
 end
 
 group :development do

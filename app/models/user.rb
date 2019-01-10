@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+  class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :shops, through: :user_shops
   has_many :comments
   has_many :logs
+
+  scope :with_user_shop, ->{joins(:user_shops)}
+  scope :user_like, ->{joins(:user_shops).where(like:'true')}#'いいね'した店
+  
 
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
