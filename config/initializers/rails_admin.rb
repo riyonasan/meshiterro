@@ -42,6 +42,7 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
   config.model 'Image' do
     edit do
       field :shop_id, :integer
