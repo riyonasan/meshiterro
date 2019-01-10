@@ -115,6 +115,10 @@ GEM
       temple (>= 0.8.0)
       tilt
     hashie (3.5.7)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.1.1)
@@ -318,6 +322,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.5)
     unf_ext (0.0.7.5-x86-mingw32)
+    unicode-display_width (0.1.1)
     warden (1.2.7)
       rack (>= 1.0)
     web-console (3.7.0)
@@ -350,7 +355,10 @@ DEPENDENCIES
   duktape
   font-awesome-rails
   gon
+  hirb
+  hirb-unicode
   jbuilder (~> 2.5)
+  jquery-rails
   mysql2 (>= 0.4.4, < 0.6.0)
   omniauth
   omniauth-facebook

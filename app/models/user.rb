@@ -4,14 +4,22 @@
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :timeoutable, :omniauthable, omniauth_providers: %i[google]
 
-  has_many :user_shops
-  has_many :shops, through: :user_shops
+  has_many :likes
+  has_many :shops, through: :likes
+  has_many :rates
+  has_many :shops, through: :rates
   has_many :comments
   has_many :logs
 
   scope :with_user_shop, ->{joins(:user_shops)}
   scope :user_like, ->{joins(:user_shops).where(like:'true')}#'いいね'した店
   
+
+# あとで消す
+  has_many :user_shops
+  has_many :shops, through: :user_shops
+# ..
+
 
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)

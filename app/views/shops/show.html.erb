@@ -1,2 +1,108 @@
-<img src="<%= @shop.images.first.image %>" width="290">
-<%= @shop.shop_name %>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag 'shops' %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <title>メシテロ石川</title>
+</head>
+<body>
+  <header class="header">
+    <div class="header_inner">
+      <div class="header_inner__title col-sm-5"><%= image_tag 'logo.png' %></div>
+      <% if user_signed_in? %>
+        <div class="header_inner__login"><%= link_to 'マイページ', user_path(current_user) %></div>
+        <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+
+      <% else %>
+        <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
+        <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
+      <% end %>
+      <div class="input-group col-sm-7">
+        <input type="text" class="form-control" size="20" maxlength="40">
+        <span class="input-group-btn">
+          <button class="btn btn-info" type="submit">検索</button>
+        </span>
+      </div>
+    </div>
+  </header>
+  <div class="shop_header">
+    <div class="shop_header_inner">
+      <!-- パンくず -->
+      <ul id="bread-crumb-list">
+        <li><%= link_to 'メシテロ石川',root_path%></li>&nbsp;&gt;&nbsp;
+        <li><%= @genre.genre_name %></li>&nbsp;&gt;&nbsp;
+        <li><%= @shop.shop_name%></li>
+        <hr>
+        </ul>
+      <h1 class="shop_header_inner_title"><%= @shop.shop_name %></h1>
+
+      <!-- button -->
+      <div class="fav_box">
+        <!-- 行きたい -->
+        <% if user_signed_in? %>
+          <div id="updated_by_ajax" >
+            <%= image_tag 'heart.png', height: '20'%>
+            行きたい
+            <%= @shop.likes_count%>
+          </div>
+        <% else %>
+          <%= image_tag 'white_heart.png', height: '20'%>
+          行きたい<%= @shop.likes_count%>
+        <% end %>
+
+        <!-- 行った -->
+        <% if user_signed_in? %>
+          <%= image_tag 'heart.png', height: '20'%>
+          行った
+        <% else %>
+          <%= image_tag 'white_heart.png', height: '20'%>
+          行った
+        <% end %>
+      <!--
+      <%= image_tag 'ikitai.png', class: "fav_button", ontouchstart:""%>
+      <%= image_tag 'itta.png', class: "fav_button", ontouchstart:""%>
+      -->
+      <!-- 行った -->
+      </div><br>
+
+      <%= @shop.hurigana%><br>
+      <!-- rating -->
+      <div class="star_rating">
+        <div class="star_rating_front" style="width: 50%">★★★★★</div>
+        <div class="star_rating_back">★★★★★</div>
+      </div>
+      <!-- ドロップダウンメニュー -->
+      <ul id="dropmenu">
+        <li><a href="#">トップ</a></li>
+        <li><a href="#">メニュー・コース</a></li>
+        <li><a href="#">写真</a></li>
+        <li><a href="#">口コミ</a></li>
+        <li><a href="#">地図</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="shop">
+    <div class="shop_inner">
+    <div class="shop_inner_main">
+      <%= image_tag(@shop.index_rectangle_image, class: "bigimg") %>
+      <div class="inline">
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <%= image_tag(@shop.index_rectangle_image, class: "smallimg")%>
+        <br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a
+      </div>
+    </div>
+    <div class="shop_inner_side">
+      <div class="sticky">
+        <%= image_tag 'phone.png'%>
+        <h2><%= @shop.tel %></h2>
+        <h3>周囲のお店ランキング</h3>
+        <%= image_tag 'kagura.jpg', class: "rank" %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -11,9 +11,14 @@ Rails.application.routes.draw do
   get 'shops/show'
 
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'shops#index'
-  get 'shops/show'
+  resources :shops do
+    resources :user_shops, only: [:update]
+    resources :likes, only: [:create, :destroy]
+    resources :rates, only: [:create, :destroy]
+  end
 
-  resources :shops
+  namespace :genres do
+    match "ramen", :via => :get
+    match "sushi", :via => :get
+  end
 end
