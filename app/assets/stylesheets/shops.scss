@@ -198,3 +198,170 @@ body{
     }
   }
 }
+
+body{
+  width: 100%;
+}
+
+.shop_header{
+  width: 100%;
+  position: relative;
+  &_inner{
+    width: 1085px;
+    height: 100px;
+      margin: 0 auto;
+      padding: 0;
+      hr{
+        width: 1085px;
+        background-color: #fff;
+        border-top: 2px dotted #bbb;
+      }
+      /* パンくずリスト */
+      #bread-crumb-list {
+        padding: 0;
+      margin: 0;
+        width: 400px;
+      text-align: left;
+    }
+    #bread-crumb-list li {
+      display: inline;
+      margin: 0;
+      padding: 0;
+      list-style-position:outside;
+      text-align: left;
+    }
+    #bread-crumb-list li a {
+      color: #333333; /* 通常時の文字色 */
+    }
+    #bread-crumb-list li a:hover {
+      text-decoration: underline;
+      color: #bbbbbb; /* マウスオンした時の文字色 */
+    }
+    &_title{
+        display: inline;
+        width: 100%;
+      }
+       /* rating */
+      .star_rating{
+      position: relative;
+      width: 5em;
+        height: 1em;
+        font-size: 25px;
+        &_front{
+          position: absolute;
+          top: 0;
+          left: 0;
+          overflow: hidden;
+          color: #ffcc33;
+        }
+        &_back{
+          color: #ccc;
+        }
+    }
+  }
+}
+
+.shop{
+  width: 100%;
+  position: relative;
+  display: flex;
+  &_inner{
+    width: 1085px;
+    margin: 0 auto;
+    display: flex;
+    &_main{
+        padding: 0;
+        img.bigimg{
+          margin-top: 20px;
+          width: 670px;
+          height: 500px;
+          object-fit: cover;
+          border: 3px #ccc solid;
+        }
+        .inline{
+          display: inline-block;
+          img.smallimg{
+          width: 160px;
+          height: 100px;
+          object-fit: cover;
+          border: 3px #ccc solid;
+          }
+        }
+    }
+    &_side {
+      align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        border: 1px solid;
+        img{
+          margin-top: 20px;
+          margin-right: 5px;
+          width: 25px;
+      }
+      img.rank{
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+
+      }
+        h2{
+          display: inline;
+        }
+      }
+    }
+}
+
+  /* スクロール追従 */
+.sticky{
+  position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+/* 行きたい/行ったボタン */
+.fav_box{
+  background-color: #eeece4;
+  padding: 10px;
+  float: right;
+  margin-top: 10px;
+  img{
+    &.fav_button{
+    margin: 0px 5px 0px;
+    }
+    &.fav_button:hover{
+    opacity: 0.5;
+    cursor: pointer;
+    }
+    &.fav_button:active{
+    position: relative;
+    top: 3px;
+    }
+  }
+}
+
+/* ドロップダウンメニュー */
+#dropmenu {
+  list-style-type: none;
+  width: 1085px;
+    margin: 30px auto 500px;
+    padding: 0;
+    li {
+      position: relative;
+    width: 20%;
+      float: left;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      a {
+        display: block;
+        margin: 0;
+      padding: 16px 0;
+        font-size: 14px;
+        font-weight: bold;
+        color: #111111;
+        line-height: 1;
+        text-decoration: none;
+        border: 1px #ccc dotted;
+    }
+  }
+}

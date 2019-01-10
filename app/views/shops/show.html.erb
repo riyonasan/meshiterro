@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag 'shops' %>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <title>メシテロ石川</title>
 </head>
 <body>
-  <img src="<%= @shop.images.first.image %>" width="290">
-  <%= @shop.shop_name %>
-  <% if user_signed_in? %>
-      <%= link_to(@shop, id:"user_like", method: :patch , remote: true) do %>
-        <div id="updated_by_ajax" >
-          <% if @user_shop.like == true %>
-            <%= image_tag 'heart.png', height: '80'%>
-          <% elsif @user_shop.like == false %>
-            <%= image_tag 'white_heart.png', height: '80'%>
-          <% end %>
-        </div>
-      <% end %>
-  <% else %>
-    <%= image_tag 'white_heart.png', height: '80'%>
-  <% end %>
+  <div class="shop_header">
+    <div class="shop_header_inner">
+      <!-- パンくず -->
+      <ul id="bread-crumb-list">
+        <li><a href="">メシテロ石川</a></li>&nbsp;&gt;&nbsp;
+        <li><a href="">ラーメン</a></li>&nbsp;&gt;&nbsp;
+        <li><a href="">麺屋大河</a></li>
+        <hr>
+        </ul>
+      <h1 class="shop_header_inner_title">麺屋大河</h1>
+      <!-- button -->
+      <div class="fav_box">
+      <%= image_tag 'ikitai.png', class: "fav_button", ontouchstart:""%>
+      <%= image_tag 'itta.png', class: "fav_button", ontouchstart:""%>
+      </div><br>
+      めんやたいが<br>
+      <!-- rating -->
+      <div class="star_rating">
+        <div class="star_rating_front" style="width: 50%">★★★★★</div>
+        <div class="star_rating_back">★★★★★</div>
+      </div>
+      <!-- ドロップダウンメニュー -->
+      <ul id="dropmenu">
+        <li><a href="#">トップ</a></li>
+        <li><a href="#">メニュー・コース</a></li>
+        <li><a href="#">写真</a></li>
+        <li><a href="#">口コミ</a></li>
+        <li><a href="#">地図</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="shop">
+    <div class="shop_inner">
+    <div class="shop_inner_main">
+      <img class="bigimg" src="gazo/1.jpg"><br>
+      <div class="inline">
+        <img class="smallimg" src="gazo/1.jpg">
+        <img class="smallimg" src="gazo/2.jpg">
+        <img class="smallimg" src="gazo/3.jpg">
+        <img class="smallimg" src="gazo/4.jpg">
+        <br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a<br>a
+      </div>
+    </div>
+    <div class="shop_inner_side">
+      <div class="sticky">
+        <img src="gazo/phone.png">
+        <h2>000-0000-0000</h2>
+        <h3>周囲のお店ランキング</h3>
+        <img class="rank" src="gazo/kagura.jpg">
+      </div>
+    </div>
+  </div>
 </body>
 </html>
