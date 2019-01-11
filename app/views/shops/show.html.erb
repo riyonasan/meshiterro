@@ -37,34 +37,12 @@
         <hr>
         </ul>
       <h1 class="shop_header_inner_title"><%= @shop.shop_name %></h1>
-
       <!-- button -->
       <div class="fav_box">
         <!-- 行きたい -->
-        <% if user_signed_in? %>
-          <div id="updated_by_ajax" >
-            <%= image_tag 'heart.png', height: '20'%>
-            行きたい
-            <%= @shop.likes_count%>
-          </div>
-        <% else %>
-          <%= image_tag 'white_heart.png', height: '20'%>
-          行きたい<%= @shop.likes_count%>
-        <% end %>
-
+        <%= render partial: './likes/like' , locals: { shop: @shop } %>
         <!-- 行った -->
-        <% if user_signed_in? %>
-          <%= image_tag 'heart.png', height: '20'%>
-          行った
-        <% else %>
-          <%= image_tag 'white_heart.png', height: '20'%>
-          行った
-        <% end %>
-      <!--
-      <%= image_tag 'ikitai.png', class: "fav_button", ontouchstart:""%>
-      <%= image_tag 'itta.png', class: "fav_button", ontouchstart:""%>
-      -->
-      <!-- 行った -->
+        <%= render partial: './rates/rate' %>
       </div><br>
 
       <%= @shop.hurigana%><br>
