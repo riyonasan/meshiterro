@@ -4,19 +4,19 @@
 
     <div id="user_like">
       <%= image_tag 'heart.png', height: '20'%>
-      行きたい
+      行きたい<br>(評価済み)
       <%= shop.likes_count%>
     </div>
 
   <% else %>
 
-    <%= link_to(shop_likes_path(shop), id:"user_like", method: :post, remote: true) do %>
-      <div id="updated_by_ajax" >
+    <div id="user_like">
+      <%= link_to(shop_likes_path(shop), method: :post, remote: true) do %>
         <%= image_tag 'white_heart.png', height: '20'%>
         行きたい
         <%= shop.likes_count%>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
   <% end %>
 <% else %>
