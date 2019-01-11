@@ -19,6 +19,11 @@ class ShopsController < ApplicationController
     @genre = Genre.find(genre_shop.genre_id)
   end
 
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @results = Shop.search(params[:search])
+  end
+
   private
 
   def like_find
