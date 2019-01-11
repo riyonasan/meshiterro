@@ -1,0 +1,24 @@
+.header{
+  width: 100%;
+  position:relative;
+  &_inner{
+    width: 1085px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0;
+    &__title{
+      margin: 0;
+      width: 100%;
+      float: left;
+      font-size: 25px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &__login{
+      margin: 10px;
+      text-align: center;
+      float: right;
+    }
+  }
+}
