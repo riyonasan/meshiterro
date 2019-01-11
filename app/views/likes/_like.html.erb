@@ -2,13 +2,11 @@
 
   <% if shop.like_user(current_user.id)%>
 
-    <%= link_to(shop_like_path(shop), id:"user_like", method: :delete) do %>
-      <div id="updated_by_ajax" >
-        <%= image_tag 'heart.png', height: '20'%>
-        行きたい
-        <%= shop.likes_count%>
-      </div>
-    <% end %>
+    <div id="user_like">
+      <%= image_tag 'heart.png', height: '20'%>
+      行きたい
+      <%= shop.likes_count%>
+    </div>
 
   <% else %>
 
