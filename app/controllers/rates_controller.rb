@@ -1,11 +1,19 @@
 class RatesController < ApplicationController
-  def create
+  before_action :rate_params, only: [:create, :update]
 
+  def create
+    @rate = Rate.create(rate_params)
+    # logger.debug @rate.errors.inspect
+    redirect_to root_path
   end
 
-  def destroy
+  def update
   end
 
   private
+  def rate_params
+    params.require(:rate).permit(:rate).merge(user_id: current_user.id, shop_id: params[:shop_id])
+  end
+
 
 end

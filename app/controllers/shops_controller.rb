@@ -17,6 +17,7 @@ class ShopsController < ApplicationController
   def show
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
+    @rate = Rate.new
   end
 
   private

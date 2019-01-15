@@ -1,22 +1,30 @@
-<div class="rate_modal" data-toggle="modal" data-target="#demoNormalModal">
-    行きたい
-</div>
-<div class="modal fade" id="demoNormalModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="demoModalTitle">ゆうきやを評価する</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                内容・・・
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                <button type="button" class="btn btn-primary">ボタン</button>
-            </div>
-        </div>
-    </div>
-</div>
+<%= stylesheet_link_tag 'rates' %>
+<% if user_signed_in?  %>
+  <div class="rate_modal" data-toggle="modal" data-target="#demoNormalModal">
+      行きたい
+  </div>
+  <div class="modal fade" id="demoNormalModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="demoModalTitle">ゆうきやを評価する</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <%= form_for([shop, rate], url: shop_rates_path(shop)) do |form| %>
+                <div class="modal-body">
+                  <%= form.number_field :rate, :class=>"form-control col-sm-7", :placeholder=>"0~5で評価" %>
+                </div>
+
+                <div class="modal-footer">
+                  <%= form.submit "送信", :class=>"btn btn-primary" %>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                </div>
+              <% end %>
+          </div>
+      </div>
+  </div>
+<% else %>
+  行きたい
+<% end %>

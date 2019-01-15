@@ -42,7 +42,7 @@
         <!-- 行きたい -->
         <%= render partial: './likes/like' , locals: { shop: @shop } %>
         <!-- 行った -->
-        <%= render partial: './rates/rate' %>
+        <%= render partial: './rates/rate' , locals: { shop: @shop, rate: @rate } %>
       </div><br>
 
       <%= @shop.hurigana%><br>
