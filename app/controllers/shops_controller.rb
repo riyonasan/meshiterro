@@ -21,12 +21,16 @@ class ShopsController < ApplicationController
 
   def search
     #Viewのformで取得したパラメータをモデルに渡す
-    @results = Shop.search(params[:search])
+    @query = Shop.ransack(params[:q])
+    @shop_res = @query.result(distinct: true)
   end
 
   private
 
   def like_find
     @shop = Shop.find(params[:id])
+  end
+  def search_params
+    params.require(:q).permit!
   end
 end
