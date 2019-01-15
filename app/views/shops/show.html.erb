@@ -48,8 +48,11 @@
       <%= @shop.hurigana%><br>
       <!-- rating -->
       <div class="star_rating">
-        <div class="star_rating_front" style="width: 50%">★★★★★</div>
-        <div class="star_rating_back">★★★★★</div>
+        <div class="shop_rate">
+          <div class="star_rating_front" style="width: <%=@shop_ave%>%">★★★★★</div>
+          <div class="star_rating_back">★★★★★</div>
+        </div>
+        <div class="shop_rate rate_num"><%= @shop_rate %></div>
       </div>
       <!-- ドロップダウンメニュー -->
       <ul id="dropmenu">
