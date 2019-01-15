@@ -15,9 +15,13 @@ class ShopsController < ApplicationController
   end
 
   def show
+    @rate = Rate.new
+
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
-    @rate = Rate.new
+
+    @shop_ave = @shop.shop_rates_ave * 2
+    @shop_rate = @shop.shop_rates_ave
   end
 
   private

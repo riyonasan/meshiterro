@@ -31,4 +31,8 @@ class Shop < ApplicationRecord
     likes.find_by(user_id: user_id)
   end
 
+  def shop_rates_ave
+    rates.where.not(rate: nil).average(:rate)
+  end
+
 end
