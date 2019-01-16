@@ -19,11 +19,11 @@ class Shop < ApplicationRecord
   # ..
 
 
-  def index_rectangle_image
+  def rectangle_image
     images.rectangle.first.image.to_s
   end
 
-  def genre_square_image
+  def square_image
     images.square.first.image.to_s
   end
 

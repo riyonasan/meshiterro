@@ -4,22 +4,15 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.includes(:images).limit(3)
-
     @rank_shops = Shop.includes(:images).order("shop_rate DESC").limit(3)
-
-    # 以下あとで直す
-    # @square_img_url = Image.square.first.image.to_s
-    @shop_1 = Shop.find(1)
-    @shop_2 = Shop.find(2)
-    @shop_3 = Shop.find(3)
+    @ramen_shop = Shop.find(2)
   end
 
   def show
-    @rate = Rate.new
-
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
 
+    @rate = Rate.new
     @shop_ave = @shop.shop_rate * 2
     @shop_rate = @shop.shop_rate
   end
