@@ -5,7 +5,7 @@ class ShopsController < ApplicationController
   def index
     @shops = Shop.includes(:images).limit(3)
 
-    @rank_shops = Shop.includes(:images).limit(3)
+    @rank_shops = Shop.includes(:images).order("shop_rate DESC").limit(3)
 
     # 以下あとで直す
     # @square_img_url = Image.square.first.image.to_s
