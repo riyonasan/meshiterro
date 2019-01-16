@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :users
   resources :shops do
     resources :user_shops, only: [:update]
-    resources :likes, only: [:create, :destroy]
-    resources :rates, only: [:create, :destroy]
+    resources :likes, only: [:create]
+    resources :rates, only: [:new, :create, :update]
   end
 
   namespace :genres do

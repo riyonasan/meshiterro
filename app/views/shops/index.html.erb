@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <%= stylesheet_link_tag "shops" %>
@@ -13,9 +13,9 @@
       <div class="nav_inner">
         <ul class="nav_inner_list">
           <li class="nav_inner_list__content">トップ</li>
+          <li class="nav_inner_list__content">PickUp</li>
           <li class="nav_inner_list__content"><%= link_to 'ラーメン',genres_ramen_path %></li>
           <li class="nav_inner_list__content"><%= link_to '寿司',genres_sushi_path %></li>
-          <li class="nav_inner_list__content">定食</li>
           <li class="nav_inner_list__content">居酒屋</li>
           <li class="nav_inner_list__fin">+</li>
         </ul>
@@ -42,16 +42,16 @@
           </div>
           <div class="content_inner__main__content">
             <div class="content_inner__main__content_head">
-              <img class="content_inner__main__content_head_image" src="<%= @shop_2.images.first.image %>" height="160">
-              <div class="content_inner__main__content_head_text"><%= @shop_3.shop_detail %></div>
+              <img class="content_inner__main__content_head_image" src="<%= @ramen_shop.rectangle_image %>" height="160">
+              <div class="content_inner__main__content_head_text"><%= @ramen_shop.shop_detail %></div>
             </div>
             <div class="content_inner__main__content_buttom">
-              <img class="content_inner__main__content_buttom_image" src="<%= @square_img_url %>" height="100">
-              <div class="content_inner__main__content_buttom_text"><%= @shop_3.shop_detail %></div>
+              <img class="content_inner__main__content_buttom_image" src="<%= @ramen_shop.square_image %>" height="100">
+              <div class="content_inner__main__content_buttom_text"><%= @ramen_shop.shop_detail %></div>
             </div>
             <div class="content_inner__main__content_buttom">
-              <img class="content_inner__main__content_buttom_image" src="<%= @square_img_url %>" height="100">
-              <div class="content_inner__main__content_buttom_text"><%= @shop_3.shop_detail %></div>
+              <img class="content_inner__main__content_buttom_image" src="<%= @ramen_shop.square_image %>" height="100">
+              <div class="content_inner__main__content_buttom_text"><%= @ramen_shop.shop_detail %></div>
             </div>
           </div>
         </div>

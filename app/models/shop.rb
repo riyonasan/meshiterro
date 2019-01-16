@@ -19,11 +19,11 @@ class Shop < ApplicationRecord
   # ..
 
 
-  def index_rectangle_image
+  def rectangle_image
     images.rectangle.first.image.to_s
   end
 
-  def genre_square_image
+  def square_image
     images.square.first.image.to_s
   end
 
@@ -31,4 +31,13 @@ class Shop < ApplicationRecord
     likes.find_by(user_id: user_id)
   end
 
+  class << self
+    def set_shop_rates
+      self.all.each do |shop|
+        shop.update(shop_rate: shop.rates.where.not(rate: nil).average(:rate))
+      end
+    end
+  end
+  # コンソールで実行
+  # Shop.set_shop_rates
 end
