@@ -31,8 +31,12 @@ class Shop < ApplicationRecord
     likes.find_by(user_id: user_id)
   end
 
-  def shop_rates_ave
-    rates.where.not(rate: nil).average(:rate)
+  def set_shop_rates
+    Shop.all.each do |shop|
+      shop.update(shop_rate: shop.rates.where.not(rate: nil).average(:rate))
+    end
   end
-
+  # コンソールで実行
+  # a = Shop.new
+  # a.set_shop_rates
 end

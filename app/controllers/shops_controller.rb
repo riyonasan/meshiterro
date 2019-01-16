@@ -20,8 +20,8 @@ class ShopsController < ApplicationController
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
 
-    @shop_ave = @shop.shop_rates_ave * 2
-    @shop_rate = @shop.shop_rates_ave
+    @shop_ave = @shop.shop_rate * 2
+    @shop_rate = @shop.shop_rate
   end
 
   private
