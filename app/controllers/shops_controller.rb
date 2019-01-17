@@ -20,7 +20,6 @@ class ShopsController < ApplicationController
   end
 
   def search
-    #Viewのformで取得したパラメータをモデルに渡す
     @query = Shop.ransack(params[:q])
     @shop_res = @query.result(distinct: true)
   end
@@ -30,7 +29,8 @@ class ShopsController < ApplicationController
   def like_find
     @shop = Shop.find(params[:id])
   end
+
   def search_params
-    params.require(:q).permit!
+    params.require(:q).permit(:genres_genre_name_or_shop_name_cont,:area_area_name_cont)
   end
 end
