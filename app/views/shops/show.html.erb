@@ -12,7 +12,7 @@
     <div class="header_inner">
       <div class="header_inner__title col-sm-5"><%= image_tag 'logo.png' %></div>
       <% if user_signed_in? %>
-        <div class="header_inner__login"><%= link_to 'マイページ', user_path(current_user) %></div>
+        <div class="header_inner__login"><%= link_to 'マイページ', user_likes_path(current_user) %></div>
         <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
 
       <% else %>
