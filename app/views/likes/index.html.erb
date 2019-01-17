@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= stylesheet_link_tag 'users' %>
+    <%= stylesheet_link_tag 'likes' %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -10,37 +10,32 @@
   </head>
   <body>
     <%= render :partial => "layouts/header" %>
-    <div class="navbar navbar-inverse container">
-      <ul class="navbar navbar_nav row">
-        <li class="col-md-4">いきたい<%= fa_icon 'heart', class: "fa-pink" %></li>
-        <li class="col-md-4">
-          <%= link_to 'いった', user_rates_path(current_user) %>
-          <%= fa_icon 'star', class: "fa-yellow" %>
-        </li>
-      </ul>
+    <div class="user-profile">
+      <div class="user-profile_inner">
+        <%= @user.nickname%>さん
+        <%= link_to 'プロフィール編集', edit_user_registration_path %>
+      </div>
     </div>
-    <div class="content container-fluid">
-      <div class="content_inner">
-        <p>&nbsp;</p>
-        <div class="likes row">
-          <% @liked_shop.each do |shop| %>
-            <div class="likes_inner col-md-6">
-              <h2 class="likes_inner__title">
-                <%= link_to shop.shop_name, shops_show_path(shop) %>
-              </h2>
-              <%= image_tag shop.square_image %>
-              <dl class="likes_inner__list">
-                <dt>地域</dt>
-                <dd><%= shop.area.area_name %></dd>
-                <dt>詳細</dt>
-                <dd><%= shop.shop_detail %></dd>
-              </dl>
-              <p>&nbsp;</p>
-            </div>
-          <% end %>
+    <div class="nav">
+      <div class="nav_inner">
+        <div class="nav_inner__list"><p>いきたい<%= fa_icon 'heart', class: "fa-pink" %></p></div>
+        <div class="nav_inner__list">
+          <p>
+            <%= link_to 'いった', user_rates_path(current_user) %>
+            <%= fa_icon 'star', class: "fa-yellow" %>
+          </p>
         </div>
       </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <%= javascript_include_tag "likeChart" %>
+    <div class="content">
+      <div class="content_inner">
+        <% @liked_shop.each do |shop| %>
+          <%= link_to (shop_path(shop)), class:"list-like" do %>
+            <%= image_tag(shop.square_image, height: '240', class: "list-like__image") %>
+            <div class="list-like__name">
+              <%= shop.shop_name %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>

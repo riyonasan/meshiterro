@@ -174,7 +174,6 @@ img {
 
 .content {
   width: 100%;
-
   &_inner {
     margin: 0 auto;
     padding: 0;
@@ -201,45 +200,6 @@ img {
         margin-bottom: auto;
         margin-left: auto;
         margin-right: auto;
-      }
-    }
-  }
-
-
-  .likes,.rated {
-    margin: 0 auto;
-    padding: 0;
-    width: 85%;
-    &_inner {
-      // border: #aaaaaa 2px solid;
-      border-collapse: separate;
-      h2 {
-        position: relative;
-        padding-bottom: .5em;
-        border-bottom: 4px solid #d3d3d3;
-      }
-
-      h2::after {
-        position: absolute;
-        content: '';
-        border-bottom: solid 4px #676767;
-        bottom: -4px;
-        width: 30%;
-        display: block;
-      }
-
-      &__list {
-        dt {
-          clear: left;
-          float: left;
-          width: 30%;
-          font-weight: lighter;
-        }
-
-        dd {
-          margin: 0 0 0 20%;
-          font-weight: bold;
-        }
       }
     }
   }
@@ -270,17 +230,6 @@ img {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .user-header {
   width: 1440px;

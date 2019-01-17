@@ -2,8 +2,8 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    user = User.find(current_user.id)
-    user_like = user.likes.map(&:shop_id)
+    @user = User.find(current_user.id)
+    user_like = @user.likes.map(&:shop_id)
     @liked_shop = Shop.with_shops(user_like)
   end
 

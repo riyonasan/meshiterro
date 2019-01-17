@@ -2,8 +2,8 @@ class RatesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    user = User.find(current_user.id)
-    user_rate = user.rates.map(&:shop_id)
+    @user = User.find(current_user.id)
+    user_rate = @user.rates.map(&:shop_id)
     @rated_shop = Shop.with_shops(user_rate)
   end
 
