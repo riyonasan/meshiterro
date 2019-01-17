@@ -10,7 +10,6 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Rails.application.config.assets.precompile += %w( like_change.js )
 
-Rails.application.config.assets.precompile += %w[likeChart.js]
 Rails.application.config.assets.unknown_asset_fallback = true
 Rails.application.config.assets.precompile += %w( shops.css )
 Rails.application.config.assets.precompile += %w( users.css )
