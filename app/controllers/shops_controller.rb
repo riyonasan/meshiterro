@@ -13,11 +13,13 @@ class ShopsController < ApplicationController
 
     if user_signed_in?
       @rate = Rate.find_by(user_id: current_user.id, shop_id: @shop.id)
+      
       if @rate.nil?
         @rate = Rate.new(user_id: current_user.id, shop_id: @shop.id)
         @rate.save
       end
     end
+
     @shop_ave = @shop.shop_rate * 2
     @shop_rate = @shop.shop_rate
   end
