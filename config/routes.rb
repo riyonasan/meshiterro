@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get 'search', to: 'shops#search'
 
   resources :users, only: [:edit, :update] do
-     resources :likes, only: [:index]
-     resources :rates, only: [:index]
-   end
+    resources :likes, only: [:index]
+    resources :rates, only: [:index]
+  end
 
   resources :shops, only: [:index, :show] do
     resources :likes, only: [:create]
