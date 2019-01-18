@@ -12,15 +12,19 @@ class ShopsController < ApplicationController
     @shop_1 = Shop.find(1)
     @shop_2 = Shop.find(2)
     @shop_3 = Shop.find(3)
+
+    @query = Shop.ransack(params[:q])
   end
 
   def show
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
+
+    @query = Shop.ransack(params[:q])
   end
 
   def search
-    @query = Shop.ransack(params[:q])
+    @query = Shop.ransack(search_params)
     @shop_res = @query.result(distinct: true)
   end
 

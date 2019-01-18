@@ -8,11 +8,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root 'shops#index'
-  get 'shops/show'
   get 'search', to: 'shops#search'
 
   resources :users
-  resources :shops do
+  resources :shops, only: [:index, :show] do
     resources :user_shops, only: [:update]
     resources :likes, only: [:create, :destroy]
     resources :rates, only: [:create, :destroy]
