@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
     @shops = Shop.includes(:images).limit(3)
     @rank_shops = Shop.includes(:images).order("shop_rate DESC").limit(3)
     @ramen_shop = Shop.find(2)
+    @query = Shop.ransack(params[:q])
   end
 
   def show
@@ -13,7 +14,7 @@ class ShopsController < ApplicationController
 
     if user_signed_in?
       @rate = Rate.find_by(user_id: current_user.id, shop_id: @shop.id)
-      
+
       if @rate.nil?
         @rate = Rate.new(user_id: current_user.id, shop_id: @shop.id)
         @rate.save
@@ -22,11 +23,22 @@ class ShopsController < ApplicationController
 
     @shop_ave = @shop.shop_rate * 2
     @shop_rate = @shop.shop_rate
+
+    @query = Shop.ransack(params[:q])
+  end
+
+  def search
+    @query = Shop.ransack(search_params)
+    @shop_res = @query.result(distinct: true)
   end
 
   private
 
   def like_find
     @shop = Shop.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit(:genres_genre_name_or_shop_name_cont,:area_area_name_cont)
   end
 end

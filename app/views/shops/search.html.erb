@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <%= stylesheet_link_tag "users" %>
     <meta charset="utf-8">
-    <%= stylesheet_link_tag 'genres' %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <title>メシテロ石川</title>
@@ -29,8 +29,29 @@
         </div>
       </div>
     </header>
-    <div class="content">
-      <%= render partial: 'genres/shop' ,collection: @shops %>
+    <div class="content container-fluid">
+      <div class="content_inner">
+        <div>
+          <% @shop_res.each do |result| %>
+            <div class="likes_inner col-md-6">
+              <h2 class="likes_inner__title"</h2>
+              <% if Image.exists?(:shop_id => result.id) %>
+                <%= image_tag result.images.first.image.to_s %>
+              <% else %>
+                <%= image_tag 'notfound.png', width: '360' %>
+              <% end %>
+              <dl class="likes_inner__list">
+                <dt>地域</dt>
+                <dd><%= result.area.area_name %></dd>
+                <dt>ジャンル</dt>
+                <dd><% genre = result.genres %><%= genre.first.genre_name %></dd>
+                <dt>詳細</dt>
+                <dd><%= result.shop_detail %></dd>
+              </dl>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </body>
   <footer></footer>

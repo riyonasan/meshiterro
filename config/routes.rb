@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   }
   root 'shops#index'
   get 'shops/show'
+  get 'search', to: 'shops#search'
 
   resources :users, only: [:edit, :update] do
     resources :likes, only: [:index]

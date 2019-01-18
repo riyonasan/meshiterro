@@ -178,30 +178,13 @@ img {
   &_inner {
     margin: 0 auto;
     padding: 0;
-    @include pc {
-      width: 80%;
-    }
-    @include sp {
-      width: 100%;
-    }    &:before {
+      width: 80%;        &:before {
       content: '';
       padding-top: 100%;
     }
     &_status {
       height: 400px;
       background-color: #fffec9;
-      .likeChart{
-        @include pc {
-          width: 80%;
-        }
-        @include sp {
-          width: 100%;
-        }
-        margin-top: auto;
-        margin-bottom: auto;
-        margin-left: auto;
-        margin-right: auto;
-      }
     }
   }
 }
