@@ -1,6 +1,5 @@
 class ShopsController < ApplicationController
   before_action :like_find, only: [:show]
-  # after_action :like_update, only: :update
 
   def index
     @shops = Shop.includes(:images).limit(3)
@@ -12,7 +11,15 @@ class ShopsController < ApplicationController
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
 
-    @rate = Rate.new
+    if user_signed_in?
+      @rate = Rate.find_by(user_id: current_user.id, shop_id: @shop.id)
+      
+      if @rate.nil?
+        @rate = Rate.new(user_id: current_user.id, shop_id: @shop.id)
+        @rate.save
+      end
+    end
+
     @shop_ave = @shop.shop_rate * 2
     @shop_rate = @shop.shop_rate
   end

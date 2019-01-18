@@ -12,15 +12,14 @@ class Shop < ApplicationRecord
   accepts_nested_attributes_for :likes
   accepts_nested_attributes_for :rates
 
-  # あとで消す
-  has_many :user_shops, dependent: :destroy
-  has_many :users, through: :user_shops
-  accepts_nested_attributes_for :user_shops
-  # ..
-
+  scope :with_shops, ->(shop_id){ where(id: shop_id) }
 
   def rectangle_image
     images.rectangle.first.image.to_s
+    # if Image.exists?
+    # else
+      # 'notfound.png', width: '360'
+    # end
   end
 
   def square_image

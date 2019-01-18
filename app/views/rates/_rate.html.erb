@@ -12,7 +12,7 @@
                       <span aria-hidden="true">&times;</span>
                   </button>
               </div>
-              <%= form_for([shop, rate], url: shop_rates_path(shop)) do |form| %>
+              <%= form_for([shop, rate], url: shop_rate_path(shop, rate)) do |form| %>
                 <div class="modal-body">
                   <%= form.number_field :rate, :class=>"form-control col-sm-7", :placeholder=>"0~5で評価" %>
                 </div>

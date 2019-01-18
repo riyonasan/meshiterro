@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   root 'shops#index'
   get 'shops/show'
 
-  resources :users
-  resources :shops do
-    resources :user_shops, only: [:update]
+  resources :users, only: [:edit, :update] do
+    resources :likes, only: [:index]
+    resources :rates, only: [:index]
+  end
+
+  resources :shops, only: [:index, :show] do
     resources :likes, only: [:create]
-    resources :rates, only: [:new, :create, :update]
+    resources :rates, only: [:new, :update]
   end
 
   namespace :genres do
