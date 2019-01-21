@@ -25,13 +25,17 @@ class Shop < ApplicationRecord
   has_many :users, through: :user_shops
   accepts_nested_attributes_for :user_shops
   # ..
+  scope :with_shops, ->(shop_id){ where(id: shop_id) }
 
-
-  def index_rectangle_image
+  def rectangle_image
     images.rectangle.first.image.to_s
+    # if Image.exists?
+    # else
+      # 'notfound.png', width: '360'
+    # end
   end
 
-  def genre_square_image
+  def square_image
     images.square.first.image.to_s
   end
 
@@ -47,6 +51,15 @@ class Shop < ApplicationRecord
     end
   end
 
+  class << self
+    def set_shop_rates
+      self.all.each do |shop|
+        shop.update(shop_rate: shop.rates.where.not(rate: nil).average(:rate))
+      end
+    end
+  end
+  # コンソールで実行
+  # Shop.set_shop_rates
   def self.ransackable_scopes(auth_object = nil)
     %i[by_keyword]
   end

@@ -13,5 +13,5 @@ class ApplicationController < ActionController::Base
       @shop_res = @query.result(distinct:true)
     end
   end
-
+  
 end

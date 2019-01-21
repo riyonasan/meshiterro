@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <%= stylesheet_link_tag "shops" %>
@@ -8,14 +8,34 @@
     <title>メシテロ石川</title>
   </head>
   <body>
-    <%= render :partial => "layouts/header" %>
+    <header class="header">
+      <div class="header_inner container">
+        <div class="header_inner__title col-md-5"><%= link_to image_tag("logo.png"), root_path %></div>
+        <% if user_signed_in? %>
+          <div class="header_inner__login"><%= link_to 'マイページ', user_likes_path(current_user) %></div>
+          <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+        <% else %>
+          <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
+          <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
+        <% end %>
+        <%= search_form_for(@query, url: search_path) do |f| %>
+          <div class="input-group col-md-7">
+            <%= f.search_field :genres_genre_name_or_shop_name_cont, class: 'form-control', placeholder: "キーワード"%>
+            <%= f.search_field :area_area_name_cont, class: 'form-control', placeholder: "エリア" %>
+            <span class="input-group-btn">
+            <%= f.submit '検索', class: 'btn btn-info' %>
+            </span>
+        <% end %>
+        </div>
+      </div>
+    </header>
     <div class="nav">
       <div class="nav_inner">
         <ul class="nav_inner_list">
           <li class="nav_inner_list__content">トップ</li>
+          <li class="nav_inner_list__content">PickUp</li>
           <li class="nav_inner_list__content"><%= link_to 'ラーメン',genres_ramen_path %></li>
           <li class="nav_inner_list__content"><%= link_to '寿司',genres_sushi_path %></li>
-          <li class="nav_inner_list__content">定食</li>
           <li class="nav_inner_list__content">居酒屋</li>
           <li class="nav_inner_list__fin">+</li>
         </ul>
@@ -42,16 +62,16 @@
           </div>
           <div class="content_inner__main__content">
             <div class="content_inner__main__content_head">
-              <img class="content_inner__main__content_head_image" src="<%= @shop_2.images.first.image %>" height="160">
-              <div class="content_inner__main__content_head_text"><%= @shop_3.shop_detail %></div>
+              <img class="content_inner__main__content_head_image" src="<%= @ramen_shop.rectangle_image %>" height="160">
+              <div class="content_inner__main__content_head_text"><%= @ramen_shop.shop_detail %></div>
             </div>
             <div class="content_inner__main__content_buttom">
-              <img class="content_inner__main__content_buttom_image" src="<%= @square_img_url %>" height="100">
-              <div class="content_inner__main__content_buttom_text"><%= @shop_3.shop_detail %></div>
+              <img class="content_inner__main__content_buttom_image" src="<%= @ramen_shop.square_image %>" height="100">
+              <div class="content_inner__main__content_buttom_text"><%= @ramen_shop.shop_detail %></div>
             </div>
             <div class="content_inner__main__content_buttom">
-              <img class="content_inner__main__content_buttom_image" src="<%= @square_img_url %>" height="100">
-              <div class="content_inner__main__content_buttom_text"><%= @shop_3.shop_detail %></div>
+              <img class="content_inner__main__content_buttom_image" src="<%= @ramen_shop.square_image %>" height="100">
+              <div class="content_inner__main__content_buttom_text"><%= @ramen_shop.shop_detail %></div>
             </div>
           </div>
         </div>
