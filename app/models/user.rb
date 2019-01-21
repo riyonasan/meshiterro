@@ -13,7 +13,7 @@
 
   scope :with_user_shop, ->{joins(:user_shops)}
   scope :user_like, ->{joins(:user_shops).where(like:'true')}#'いいね'した店
-  
+
 
 # あとで消す
   has_many :user_shops
@@ -48,7 +48,7 @@
     )
 
     user
-end
+  end
 
   def self.find_for_facebook_oauth(auth, _signed_in_resource = nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
@@ -58,7 +58,7 @@ end
                          email: auth.info.email,
                          password: Devise.friendly_token[0, 20])
     user
-   end
+  end
 
   def self.find_for_twitter_oauth(auth, _signed_in_resource = nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first

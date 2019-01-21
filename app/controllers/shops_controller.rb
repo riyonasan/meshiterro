@@ -19,18 +19,9 @@ class ShopsController < ApplicationController
     @genre = Genre.find(genre_shop.genre_id)
   end
 
-  def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    @query = Shop.ransack(params[:q])
-    @shop_res = @query.result(distinct: true)
-  end
-
   private
 
   def like_find
     @shop = Shop.find(params[:id])
-  end
-  def search_params
-    params.require(:q).permit!
   end
 end

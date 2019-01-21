@@ -12,6 +12,14 @@ class Shop < ApplicationRecord
   accepts_nested_attributes_for :likes
   accepts_nested_attributes_for :rates
 
+  scope :by_keyword, (lambda do |string|
+    string.split(' ').inject(self) do |scope, text|
+      query = ransack(genres_genre_name_or_shop_name_or_area_area_name_cont_any: text).result
+      scope.merge(query)
+    end
+  end)
+
+
   # あとで消す
   has_many :user_shops, dependent: :destroy
   has_many :users, through: :user_shops
@@ -39,4 +47,7 @@ class Shop < ApplicationRecord
     end
   end
 
+  def self.ransackable_scopes(auth_object = nil)
+    %i[by_keyword]
+  end
 end
