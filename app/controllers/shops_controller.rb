@@ -21,7 +21,7 @@ class ShopsController < ApplicationController
       end
     end
 
-    @shop_ave = @shop.shop_rate * 2
+    @shop_ave = @shop.shop_rate * 20
     @shop_rate = @shop.shop_rate
 
     @query = Shop.ransack(params[:q])
