@@ -20,5 +20,17 @@
       margin: 10px;
       text-align: center;
     }
+    &_query {
+      width: 100%;
+      &__area {
+        width: 30%;
+      }
+      &__keyword {
+        width: 60%;
+      }
+      &__submit {
+        width: 10%;
+      }
+    }
   }
 }
