@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   root 'shops#index'
-  get 'search', to: 'shops#search'
+  get 'search', to: 'search#search'
 
   resources :users, only: [:edit, :update] do
     resources :likes, only: [:index]
