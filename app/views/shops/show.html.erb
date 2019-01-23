@@ -115,7 +115,7 @@
             <div class="slider">
               <% @shop.images.rectangle.all.each do |img| %>
                 <div class="slide">
-                  <div class="slide_body"><%= image_tag(img.image.to_s)%></div>
+                  <div class="slide_body"><%= image_tag(img.image.to_s, class: "smallimg")%></div>
                 </div>
               <% end %>
             </div>

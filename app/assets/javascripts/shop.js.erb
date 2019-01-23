@@ -6,3 +6,11 @@ $(document).on
       centerMode: true
   });
 });
+
+
+$(function(){
+  $(".smallimg").click(function(){
+    url = $(this).attr("src");
+    $(".bigimg").attr("src", url);    
+  });
+})
