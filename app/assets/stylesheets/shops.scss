@@ -243,10 +243,11 @@ body{
 
        /* rating */
       .star_rating{
-        position: relative;
-        width: 5em;
-        height: 1em;
-        font-size: 25px;
+      overflow: hidden;
+      position: relative;
+      // width: 5em;
+      // height: 1em;
+      font-size: 25px;
         &_front{
           position: absolute;
           top: 0;
@@ -259,6 +260,14 @@ body{
         }
     }
   }
+}
+
+.shop_rate{
+  float: left;
+}
+
+.rate_num{
+  margin-left: 20px;
 }
 
 .shop{
@@ -281,7 +290,7 @@ body{
       .inline{
         display: inline-block;
         img.smallimg{
-        
+
         }
         hr{
           border-top: 1px dotted #8c8b8b;
@@ -462,7 +471,7 @@ body{
         border: 3px #ccc solid;
     }
   }
-  
+
   .slick-dots{
     position: absolute;
     bottom: -20px;
