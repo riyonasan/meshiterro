@@ -8,51 +8,31 @@
     <title>メシテロ石川</title>
   </head>
   <body>
-    <header class="header">
-      <div class="header_inner container">
-        <div class="header_inner__title col-md-5"><%= link_to image_tag("logo.png"), root_path %></div>
-        <% if user_signed_in? %>
-          <div class="header_inner__login"><%= link_to 'マイページ', user_likes_path(current_user) %></div>
-          <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
-        <% else %>
-          <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
-          <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
-        <% end %>
-        <%= search_form_for(@query, url: search_path) do |f| %>
-          <div class="input-group col-md-7">
-            <%= f.search_field :genres_genre_name_or_shop_name_cont, class: 'form-control', placeholder: "キーワード"%>
-            <%= f.search_field :area_area_name_cont, class: 'form-control', placeholder: "エリア" %>
-            <span class="input-group-btn">
-            <%= f.submit '検索', class: 'btn btn-info' %>
-            </span>
-        <% end %>
-        </div>
-      </div>
-    </header>
+    <%= render :partial => 'layouts/header' %>
     <div class="content container-fluid">
       <div class="content_inner">
         <div>
           <% @shop_res.each do |result| %>
             <div class="likes_inner col-md-6">
               <h2 class="likes_inner__title"</h2>
-              <% if Image.exists?(:shop_id => result.id) %>
-                <%= image_tag result.images.first.image.to_s %>
-              <% else %>
-                <%= image_tag 'notfound.png', width: '360' %>
-              <% end %>
-              <dl class="likes_inner__list">
-                <dt>地域</dt>
-                <dd><%= result.area.area_name %></dd>
-                <dt>ジャンル</dt>
-                <dd><% genre = result.genres %><%= genre.first.genre_name %></dd>
-                <dt>詳細</dt>
-                <dd><%= result.shop_detail %></dd>
-              </dl>
-            </div>
-          <% end %>
+                <% if Image.exists?(:shop_id => result.id) %>
+                  <%= image_tag result.images.first.image.to_s %>
+                <% else %>
+                  <%= image_tag 'notfound.png', width: '360' %>
+                <% end %>
+                <dl class="likes_inner__list">
+                  <dt>地域</dt>
+                  <dd><%= result.area.area_name %></dd>
+                  <dt>ジャンル</dt>
+                  <dd><% genre = result.genres %><%= genre.first.genre_name %></dd>
+                  <dt>詳細</dt>
+                  <dd><%= result.shop_detail %></dd>
+                </dl>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  </body>
-  <footer></footer>
-</html>
+    </body>
+    <footer></footer>
+  </html>

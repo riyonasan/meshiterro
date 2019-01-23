@@ -9,18 +9,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   </head>
   <body>
-    <header class="header">
-      <div class="header_inner container">
-        <div class="header_inner__title col-md-5"><%= link_to image_tag("logo.png"), root_path %></div>
-        <% if user_signed_in? %>
-          <div class="header_inner__login"><%= link_to 'マイページ', user_likes_path(current_user) %></div>
-          <div class="header_inner__login"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
-        <% else %>
-          <div class="header_inner__login"><%= link_to '新規登録', new_user_registration_path %></div>
-          <div class="header_inner__login"><%= link_to 'ログイン', new_user_session_path %></div>
-        <% end %>
-      </div>
-    </header>
+    <%= render :partial => 'layouts/header-no-search' %>
     <div class="user-profile">
       <div class="user-profile_inner">
         <%= @user.nickname%>さん
