@@ -7,8 +7,8 @@ $(document).on
   });
 });
 
-
-$(function(){
+$(document).on
+('turbolinks:load',function(){
   $(".smallimg").click(function(){
     url = $(this).attr("src");
     $(".bigimg").attr("src", url);    
