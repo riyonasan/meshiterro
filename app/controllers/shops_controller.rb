@@ -27,10 +27,6 @@ class ShopsController < ApplicationController
     @query = Shop.ransack(params[:q])
   end
 
-  def search
-    @query = Shop.ransack(search_params)
-    @shop_res = @query.result(distinct: true)
-  end
 
   private
 
