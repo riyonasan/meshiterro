@@ -1,0 +1,16 @@
+$(document).on
+('turbolinks:load',function(){
+    $('.slider').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      centerMode: true
+  });
+});
+
+$(document).on
+('turbolinks:load',function(){
+  $(".smallimg").click(function(){
+    url = $(this).attr("src");
+    $(".bigimg").attr("src", url);    
+  });
+})

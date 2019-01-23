@@ -10,8 +10,11 @@
   <body>
     <%= render :partial => 'layouts/header' %>
     <div class="content">
+      <p>ラーメンでおすすめのお店</p>
+      <hr>
       <%= render partial: 'genres/shop' ,collection: @shops %>
     </div>
+    
   </body>
   <footer></footer>
 </html>

@@ -39,12 +39,37 @@
           <div class="shop_rate rate_num"><%= @shop_rate %></div>
         </div>
         <!-- ドロップダウンメニュー -->
-        <ul id="dropmenu">
+        <ul class="menu">
           <li><a href="#">トップ</a></li>
-          <li><a href="#">メニュー・コース</a></li>
-          <li><a href="#">写真</a></li>
-          <li><a href="#">口コミ</a></li>
-          <li><a href="#">地図</a></li>
+          <li class="menu_single"><a href="#">メニュー・コース</a>
+            <ul class="menu_second-level">
+              <li><a href="#">コース</a></li>
+              <li><a href="#">料理</a></li>
+              <li><a href="#">ドリンク</a></li>
+              <li><a href="#">ランチ</a></li>
+            </ul>
+          </li>
+          <li class="menu_single"><a href="#">写真</a>
+            <ul class="menu_second-level">
+              <li><a href="#">料理</a></li>
+              <li><a href="#">ドリンク</a></li>
+              <li><a href="#">内観</a></li>
+              <li><a href="#">外観</a></li>
+              <li><a href="#">その他</a></li>
+            </ul>
+          </li>
+          <li class="menu_single"><a href="#">口コミ</a>
+            <ul class="menu_second-level">
+              <li><a href="#">口コミ</a></li>
+              <li><a href="#">評価</a></li>
+            </ul>
+          </li>
+          <li class="menu_single"><a href="#">地図</a>
+            <ul class="menu_second-level">
+              <li><a href="#">地図</a></li>
+              <li><a href="#">周辺のお店</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>
@@ -53,10 +78,14 @@
         <div class="shop_inner_main">
           <%= image_tag(@shop.rectangle_image, class: "bigimg") %>
           <div class="inline">
-            <%= image_tag(@shop.rectangle_image, class: "smallimg")%>
-            <%= image_tag(@shop.rectangle_image, class: "smallimg")%>
-            <%= image_tag(@shop.rectangle_image, class: "smallimg")%>
-            <%= image_tag(@shop.rectangle_image, class: "smallimg")%>
+            <div class="slider">
+              <% @shop.images.rectangle.all.each do |img| %>
+                <div class="slide">
+                  <div class="slide_body"><%= image_tag(img.image.to_s, class: "smallimg")%></div>
+                </div>
+              <% end %>
+            </div>
+            <hr>
             <br>
             a<br>
             a<br>
@@ -132,10 +161,19 @@
         </div>
         <div class="shop_inner_side">
           <div class="sticky">
-            <%= image_tag 'phone.png'%>
-            <h2><%= @shop.tel %></h2>
-            <h3>周囲のお店ランキング</h3>
-            <%= image_tag 'kagura.jpg', class: "rank" %>
+            <%= image_tag 'phone.png', class: "phone"%>
+            <p class="phone"><%= @shop.tel %></p>
+            <p class="ranking">周辺のお店ランキング</p>
+            <hr>
+            <a href="#"><%= image_tag '1.png', class: "rank" %>
+              <%= image_tag 'kagura.jpg', class: "shop" %>自然派ラーメン 神楽</a><br>
+            <hr>
+            <a href="#"><%= image_tag '2.png', class: "rank" %>
+              <%= image_tag 'noboru.jpg', class: "shop" %>自家製麺 のぼる</a><br>
+            <hr>
+            <a href="#"><%= image_tag '3.png', class: "rank" %>
+              <%= image_tag 'taiga.jpg', class: "shop" %>麺屋大河</a><br>
+            <hr>
           </div>
         </div>
       </div>

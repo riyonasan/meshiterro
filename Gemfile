@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 
 
 # Use Redis adapter to run Action Cable in production
