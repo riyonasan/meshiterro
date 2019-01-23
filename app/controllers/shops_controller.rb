@@ -7,7 +7,7 @@ class ShopsController < ApplicationController
     @rank_shops = Shop.includes(:images).limit(3)
 
     # 以下あとで直す
-    @square_img_url = Image.square.first.image.to_s
+    # @square_img_url = Image.square.first.image.to_s
     @shop_1 = Shop.find(1)
     @shop_2 = Shop.find(2)
     @shop_3 = Shop.find(3)
