@@ -289,11 +289,28 @@ body{
       }
       .inline{
         display: inline-block;
-        img.smallimg{
-
+        p.info{
+            font-weight: bold;
+            padding-left: 10px;
+            border-left: 6px solid #FFE4C4;
         }
-        hr{
-          border-top: 1px dotted #8c8b8b;
+        table{
+          width: 100%;
+          tr{
+            height: 60px;
+            font-size: 15px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            th{
+              width: 150px;
+              padding: 15px;
+              background-color: #FFFFE0;
+              border-right: 1px solid #ccc;
+            }
+            td{
+              padding: 8px;
+            }
+          }
         }
       }
     }
@@ -331,17 +348,23 @@ body{
           object-fit: cover;
         }
       }
-      p.phone{
-        display: inline;
-        font-size:34px;
-        font-weight: bold;
-        vertical-align: middle;
-      }
-      p.ranking{
-        font-size: 18px;
-        font-weight: 500;
-        margin-bottom: 0;
-        padding-top: 50px;
+      p{
+        &.rank_shop_name{
+          display: inline;
+          margin-left: 7px;
+        }
+        &.phone{
+          display: inline;
+          font-size:34px;
+          font-weight: bold;
+          vertical-align: middle;
+        }
+        &.ranking{
+          font-size: 18px;
+          font-weight: 500;
+          margin-bottom: 0;
+          padding-top: 50px;
+        }
       }
       hr{
         border-top: 1px dotted #8c8b8b;
@@ -359,22 +382,21 @@ body{
 
 /* 行きたい/行ったボタン */
 .fav_box{
-  background-color: #eeece4;
-  padding: 10px;
   float: right;
-  margin-top: 10px;
-  img{
-    &.fav_button{
-    margin: 0px 5px 0px;
-    }
-    &.fav_button:hover{
-    opacity: 0.5;
-    cursor: pointer;
-    }
-    &.fav_button:active{
-    position: relative;
-    top: 3px;
-    }
+  border: solid 1px #A9A9A9;
+  border-radius: 5px;
+  padding: 20px;
+  margin-right: 10px;
+  background-color: #F0FFF0;
+  .go_shop{
+    display: inline;
+    padding: 10px;
+    margin: 0 6px 0;
+    border: solid 1px #A9A9A9;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #fff;
   }
 }
 
