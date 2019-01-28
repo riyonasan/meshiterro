@@ -38,32 +38,31 @@
           <hr>
         </ul>
         <p><%= @shop.shop_name %></p>
-        <!-- button -->
         <div class="fav_box">
           <!-- 行きたい -->
-          <% if user_signed_in? %>
-            <div id="updated_by_ajax" >
-              <%= image_tag 'heart.png', height: '20'%>
-              行きたい
-              <%= @shop.likes_count%>
-            </div>
-          <% else %>
-            <%= image_tag 'white_heart.png', height: '20'%>
-            行きたい<%= @shop.likes_count%>
-          <% end %>
+          <div class="go_shop">
+            <% if user_signed_in? %>
+            <!-- <div id="updated_by_ajax" > -->
+            <%= image_tag 'heart.png', height: '15'%>
+            行きたい
+            <%= @shop.likes_count%>
+            <!-- </div> -->
+            <% else %>
+            <%= image_tag 'white_heart.png', height: '15'%>
+            行きたい
+            <%= @shop.likes_count%>
+            <% end %>
+          </div>
           <!-- 行った -->
-          <% if user_signed_in? %>
-            <%= image_tag 'heart.png', height: '20'%>
+          <div class="go_shop">
+            <% if user_signed_in? %>
+            <%= image_tag 'heart.png', height: '15'%>
             行った
-          <% else %>
-            <%= image_tag 'white_heart.png', height: '20'%>
+            <% else %>
+            <%= image_tag 'white_heart.png', height: '15'%>
             行った
-          <% end %>
-          <!--
-      <%= image_tag 'ikitai.png', class: "fav_button", ontouchstart:""%>
-      <%= image_tag 'itta.png', class: "fav_button", ontouchstart:""%>
-      -->
-          <!-- 行った -->
+            <% end %>
+          </div>
         </div>
         <br>
         <%= @shop.hurigana%><br>
@@ -120,77 +119,30 @@
               <% end %>
             </div>
             <hr>
-            <br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a<br>
-            a
+            <p class="info">店舗情報</p>
+            <table>
+                <tr>
+                  <th>店名</th>
+                  <td>麺屋大河</td>
+                </tr>
+                <tr>
+                  <th>住所</th>
+                  <td>
+                    <p>石川県金沢市堀川町6-3</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12815.900409943439!2d136.6522998!3d36.5788178!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8662312897ada7!2z6bq65bGL5aSn5rKz!5e0!3m2!1sja!2sjp!4v1548641814747" width="475" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </td>
+                </tr>
+                <tr>
+                  <th>営業時間</th>
+                  <td>
+                    11:30～15:00<br>
+                    17:30～23:00<br>
+                    [日・祝日]<br>
+                    11:30～15:00
+                  </td>
+                </tr>
+                <tr>
+            </table>
           </div>
         </div>
         <div class="shop_inner_side">
@@ -200,13 +152,13 @@
             <p class="ranking">周辺のお店ランキング</p>
             <hr>
             <a href="#"><%= image_tag '1.png', class: "rank" %>
-              <%= image_tag 'kagura.jpg', class: "shop" %>自然派ラーメン 神楽</a><br>
+              <%= image_tag 'kagura.jpg', class: "shop" %><p class="rank_shop_name">自然派ラーメン 神楽</p></a><br>
             <hr>
             <a href="#"><%= image_tag '2.png', class: "rank" %>
-              <%= image_tag 'noboru.jpg', class: "shop" %>自家製麺 のぼる</a><br>
+              <%= image_tag 'noboru.jpg', class: "shop" %><p class="rank_shop_name">自家製麺 のぼる</p></a><br>
             <hr>
             <a href="#"><%= image_tag '3.png', class: "rank" %>
-              <%= image_tag 'taiga.jpg', class: "shop" %>麺屋大河</a><br>
+              <%= image_tag 'taiga.jpg', class: "shop" %><p class="rank_shop_name">麺屋大河</p></a><br>
             <hr>
           </div>
         </div>
