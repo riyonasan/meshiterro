@@ -22,6 +22,10 @@ class Shop < ApplicationRecord
     # end
   end
 
+  def genre_square_image
+   images.square.first.image.to_s
+  end
+
   def square_image
     images.square.first.image.to_s
   end
