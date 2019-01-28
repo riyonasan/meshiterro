@@ -21,8 +21,14 @@ class ShopsController < ApplicationController
       end
     end
 
-    @shop_ave = @shop.shop_rate * 20
-    @shop_rate = @shop.shop_rate
+    if @shop.shop_rate.nil?
+      @shop_ave = 0
+      @shop_rate = 'このお店はまだ評価されていません。'
+    else
+      @shop_ave = @shop.shop_rate * 20
+      @shop_rate = @shop.shop_rate
+    end
+
 
     @query = Shop.ransack(params[:q])
   end
