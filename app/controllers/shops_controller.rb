@@ -11,6 +11,7 @@ class ShopsController < ApplicationController
   def show
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
+    @rank_shops = Shop.includes(:images).order("shop_rate DESC").limit(3)
 
     if user_signed_in?
       @rate = Rate.find_by(user_id: current_user.id, shop_id: @shop.id)

@@ -25,30 +25,30 @@
           <!-- 行きたい -->
           <div class="go_shop">
             <% if user_signed_in? %>
-            <!-- <div id="updated_by_ajax" > -->
-            <%= image_tag 'heart.png', height: '15'%>
-            行きたい
-            <%= @shop.likes_count%>
-            <!-- </div> -->
+              <!-- <div id="updated_by_ajax" > -->
+              <%= image_tag 'heart.png', height: '15'%>
+              行きたい
+              <%= @shop.likes_count%>
+              <!-- </div> -->
             <% else %>
-            <%= image_tag 'white_heart.png', height: '15'%>
-            行きたい
-            <%= @shop.likes_count%>
+              <%= image_tag 'white_heart.png', height: '15'%>
+              行きたい
+              <%= @shop.likes_count%>
             <% end %>
           </div>
           <!-- 行った -->
           <div class="go_shop">
             <% if user_signed_in? %>
-            <%= image_tag 'heart.png', height: '15'%>
-            行った
+              <%= image_tag 'heart.png', height: '15'%>
+              行った
             <% else %>
-            <%= image_tag 'white_heart.png', height: '15'%>
-            行った
+              <%= image_tag 'white_heart.png', height: '15'%>
+              行った
             <% end %>
           </div>
         </div>
         <br>
-        <%= @shop.hurigana%><br>
+        <%= @shop.hurigana %><br>
         <!-- rating -->
         <div>
           <div class="shop_rate star_rating">
@@ -107,47 +107,53 @@
             <hr>
             <p class="info">店舗情報</p>
             <table>
-                <tr>
-                  <th>店名</th>
-                  <td>麺屋大河</td>
-                </tr>
-                <tr>
-                  <th>住所</th>
-                  <td>
-                    <p>石川県金沢市堀川町6-3</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12815.900409943439!2d136.6522998!3d36.5788178!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8662312897ada7!2z6bq65bGL5aSn5rKz!5e0!3m2!1sja!2sjp!4v1548641814747" width="475" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
-                  </td>
-                </tr>
-                <tr>
-                  <th>営業時間</th>
-                  <td>
-                    11:30～15:00<br>
-                    17:30～23:00<br>
-                    [日・祝日]<br>
-                    11:30～15:00
-                  </td>
-                </tr>
-                <tr>
-            </table>
+              <tr>
+                <th>店名</th>
+                <td><%= @shop.shop_name %></td>
+              </tr>
+              <tr>
+                <th>住所</th>
+                <td>
+                  <p><%= @shop.address %></p>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12815.900409943439!2d136.6522998!3d36.5788178!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8662312897ada7!2z6bq65bGL5aSn5rKz!5e0!3m2!1sja!2sjp!4v1548641814747" width="475" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </td>
+              </tr>
+              <tr>
+                <th>営業時間</th>
+                <td>
+                  11:30～15:00<br>
+                  17:30～23:00<br>
+                  [日・祝日]<br>
+                  11:30～15:00
+                </td>
+              </tr>
+              <tr>
+              </table>
+            </div>
+          </div>
+          <div class="shop_inner_side">
+            <div class="sticky">
+              <%= image_tag 'phone.png', class: "phone"%>
+              <p class="phone"><%= @shop.tel %></p>
+              <p class="ranking">周辺のお店ランキング</p>
+              <hr>
+              <a href="#"><%= image_tag '1.png', class: "rank" %>
+                <%= link_to image_tag( @rank_shops.first.square_image, width: '165', height: '165', class: 'shop'), shop_path(@rank_shops.first) %>
+                <p class="rank_shop_name"><%= link_to  @rank_shops.first.shop_name, shop_path(@rank_shops.first) %></p>
+              </a><br>
+              <hr>
+              <a href="#"><%= image_tag '2.png', class: "rank" %>
+                <%= link_to image_tag( @rank_shops.second.square_image, width: '165', height: '165', class: 'shop'), shop_path(@rank_shops.second) %>
+                <p class="rank_shop_name"><%= link_to  @rank_shops.second.shop_name, shop_path(@rank_shops.second) %></p>
+              </a><br>
+              <hr>
+              <a href="#"><%= image_tag '3.png', class: "rank" %>
+                <%= link_to image_tag( @rank_shops.third.square_image, width: '165', height: '165', class: 'shop'), shop_path(@rank_shops.first) %>
+                <p class="rank_shop_name"><%= link_to  @rank_shops.first.shop_name, shop_path(@rank_shops.first) %></p>
+              </a><br>
+              <hr>
+            </div>
           </div>
         </div>
-        <div class="shop_inner_side">
-          <div class="sticky">
-            <%= image_tag 'phone.png', class: "phone"%>
-            <p class="phone"><%= @shop.tel %></p>
-            <p class="ranking">周辺のお店ランキング</p>
-            <hr>
-            <a href="#"><%= image_tag '1.png', class: "rank" %>
-              <%= image_tag 'kagura.jpg', class: "shop" %><p class="rank_shop_name">自然派ラーメン 神楽</p></a><br>
-            <hr>
-            <a href="#"><%= image_tag '2.png', class: "rank" %>
-              <%= image_tag 'noboru.jpg', class: "shop" %><p class="rank_shop_name">自家製麺 のぼる</p></a><br>
-            <hr>
-            <a href="#"><%= image_tag '3.png', class: "rank" %>
-              <%= image_tag 'taiga.jpg', class: "shop" %><p class="rank_shop_name">麺屋大河</p></a><br>
-            <hr>
-          </div>
-        </div>
-      </div>
-    </body>
-  </html>
+      </body>
+    </html>
