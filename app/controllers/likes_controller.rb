@@ -1,19 +1,14 @@
 class LikesController < ApplicationController
-  before_action :like_find, only: [:create, :destroy]
+  before_action :authenticate_user!
+
+  def index
+    @user = User.find(current_user.id)
+    user_like = @user.likes.map(&:shop_id)
+    @liked_shop = Shop.with_shops(user_like)
+  end
+
   def create
-    if like.nul?
-      like = Like.create(user_id: current_user.id, shop_id: @shop.id)
-    end
-
-  end
-
-  def destroy
-  end
-
-  private
-
-  def like_find
-    @shop = Shop.find(params[:id])
-    like = Like.find_by(user_id: current_user.id, shop_id: @shop.id)
+    like = Like.create(user_id: current_user.id, shop_id: params[:shop_id])
+    @shop = like.shop
   end
 end

@@ -12,19 +12,39 @@ class Shop < ApplicationRecord
   accepts_nested_attributes_for :likes
   accepts_nested_attributes_for :rates
 
-  # あとで消す
-  has_many :user_shops, dependent: :destroy
-  has_many :users, through: :user_shops
-  accepts_nested_attributes_for :user_shops
-  # ..
+  scope :with_shops, ->(shop_id){ where(id: shop_id) }
 
-
-  def index_rectangle_image
+  def rectangle_image
     images.rectangle.first.image.to_s
+    # if Image.exists?
+    # else
+      # 'notfound.png', width: '360'
+    # end
   end
 
-  def genre_square_image
+  def square_image
     images.square.first.image.to_s
   end
 
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
+
+  def self.search(search)
+    if search
+      Shop.where(['content LIKE ?', "%#{search}"])
+    else
+      Shop.all
+    end
+  end
+
+  class << self
+    def set_shop_rates
+      self.all.each do |shop|
+        shop.update(shop_rate: shop.rates.where.not(rate: nil).average(:rate))
+      end
+    end
+  end
+  # コンソールで実行
+  # Shop.set_shop_rates
 end

@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require shop.js
-//= require Chart.min
 //= require rails-ujs
 //= require activestorage
 //= require jquery.turbolinks

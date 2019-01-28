@@ -38,6 +38,9 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'carrierwave'
 
+#検索機能
+gem 'ransack'
+
 #管理画面
 gem 'rails_admin'
 gem 'cancancan'
