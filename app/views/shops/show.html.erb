@@ -115,7 +115,9 @@
                 <th>住所</th>
                 <td>
                   <p><%= @shop.address %></p>
-                  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12815.900409943439!2d136.6522998!3d36.5788178!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe8662312897ada7!2z6bq65bGL5aSn5rKz!5e0!3m2!1sja!2sjp!4v1548641814747" width="475" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  <iframe
+                  width="475" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaVmh3ZN5coEfSZ7QakCTZxoMhruGyK2Y &q=<%= @shop.address.html_safe %>"  allowfullscreen>
+                  </iframe>
                 </td>
               </tr>
               <tr>
