@@ -30,14 +30,6 @@ class Shop < ApplicationRecord
     likes.find_by(user_id: user_id)
   end
 
-  def self.search(search)
-    if search
-      Shop.where(['content LIKE ?', "%#{search}"])
-    else
-      Shop.all
-    end
-  end
-
   class << self
     def set_shop_rates
       self.all.each do |shop|
