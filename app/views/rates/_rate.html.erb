@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag 'rates' %>
 <% if user_signed_in?  %>
+<div class="shop_btn">
   <div class="rate_modal" data-toggle="modal" data-target="#demoNormalModal">
       行った
+    </div>
   </div>
   <div class="modal fade" id="demoNormalModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -26,5 +28,7 @@
       </div>
   </div>
 <% else %>
+<div class="shop_btn">
   行った
+</div>
 <% end %>
