@@ -9,11 +9,12 @@
   </head>
   <body>
     <%= render :partial => 'layouts/header' %>
-    <div class="content container-fluid">
-      <div class="content_inner">
-        <div>
-          <%= render partial: 'shop', collection: @shops %>
-        </div>
+    <div class="content">
+      <h3><%= params[:q][:area_area_name_cont] %>　<%=  params[:q][:genres_genre_name_or_shop_name_cont] %>の検索結果：<%= @count %>件
+      </h3>
+      <hr>
+      <div>
+        <%= render partial: 'shop', collection: @shops %>
       </div>
     </div>
   </body>
