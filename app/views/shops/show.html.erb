@@ -115,18 +115,19 @@
                 <th>住所</th>
                 <td>
                   <p><%= @shop.address %></p>
-                  <iframe
-                  width="475" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaVmh3ZN5coEfSZ7QakCTZxoMhruGyK2Y &q=<%= @shop.address.html_safe %>"  allowfullscreen>
-                  </iframe>
+                  <% if @shop.address.present? %>
+                    <iframe width="475" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaVmh3ZN5coEfSZ7QakCTZxoMhruGyK2Y &q=<%= @shop.address.html_safe %>"  allowfullscreen>
+                    </iframe>
+                  <% else %>
+                    <iframe width="475" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDaVmh3ZN5coEfSZ7QakCTZxoMhruGyK2Y &q=金沢市"  allowfullscreen>
+                    </iframe>
+                  <% end %>
                 </td>
               </tr>
               <tr>
                 <th>営業時間</th>
                 <td>
-                  11:30～15:00<br>
-                  17:30～23:00<br>
-                  [日・祝日]<br>
-                  11:30～15:00
+                  <%= @shop.business_hours.html_safe %>
                 </td>
               </tr>
               <tr>
