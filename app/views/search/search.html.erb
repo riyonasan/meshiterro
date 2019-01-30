@@ -9,12 +9,10 @@
   </head>
   <body>
     <%= render :partial => 'layouts/header' %>
-    <div class="content container-fluid">
-      <div class="content_inner">
-        <div>
-          <%= render partial: 'shop', collection: @shops %>
-        </div>
-      </div>
+    <div class="content">
+      <p>検索結果</p>
+      <hr>
+      <%= render partial: 'shop', collection: @shops %>
     </div>
   </body>
   <footer></footer>
