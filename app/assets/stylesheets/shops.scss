@@ -187,7 +187,17 @@ body{
         }
       }
       &__content{
+        position: relative;
         margin:0 50px;
+        &__rank{
+          width: 40px;
+          position: absolute;
+          right: 0;
+          text-align: center;
+          background-color: rgba(192,192,192,0.8);
+
+          // margin: 0 auto;
+        }
         &__title{
           height: 60px;
           font-size: 14px;

@@ -59,7 +59,7 @@
           <div class="content_inner__side_top">
             <p>ランキング総合</p>
           </div>
-          <%= render partial: 'shops/rank_shop' ,collection: @rank_shops %>
+          <%= render partial: 'shops/rank_shop', collection: @rank_shops, locals: { rank_shops: @rank_shops } %>
         </div>
       </div>
     </div>

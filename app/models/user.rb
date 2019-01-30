@@ -11,9 +11,6 @@
   has_many :comments
   has_many :logs
 
-  scope :with_user_shop, ->{joins(:user_shops)}
-  scope :user_like, ->{joins(:user_shops).where(like:'true')}#'いいね'した店
-
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
 
