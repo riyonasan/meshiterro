@@ -2,6 +2,7 @@ class SearchController < ApplicationController
   def search
     @query = Shop.ransack(search_params)
     @shops = @query.result(distinct: true)
+    @count = @shops.count
   end
 
   private

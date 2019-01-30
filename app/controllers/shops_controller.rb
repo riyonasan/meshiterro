@@ -11,6 +11,7 @@ class ShopsController < ApplicationController
   def show
     genre_shop =  GenreShop.where(shop_id: @shop.id).first
     @genre = Genre.find(genre_shop.genre_id)
+    @rank_shops = Shop.includes(:images).order("shop_rate DESC").limit(3)
 
     if user_signed_in?
       @rate = Rate.find_by(user_id: current_user.id, shop_id: @shop.id)
@@ -21,8 +22,14 @@ class ShopsController < ApplicationController
       end
     end
 
-    @shop_ave = @shop.shop_rate * 20
-    @shop_rate = @shop.shop_rate
+    if @shop.shop_rate.nil?
+      @shop_ave = 0
+      @shop_rate = 'このお店はまだ評価されていません。'
+    else
+      @shop_ave = @shop.shop_rate * 20
+      @shop_rate = @shop.shop_rate
+    end
+
 
     @query = Shop.ransack(params[:q])
   end
