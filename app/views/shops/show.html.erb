@@ -31,12 +31,12 @@
         <br>
         <%= @shop.hurigana %><br>
         <!-- rating -->
-        <div>
-          <div class="shop_rate star_rating">
+        <div class="a">
+          <div class="star_rating">
             <div class="star_rating_front" style="width: <%= @shop_ave %>%">★★★★★</div>
             <div class="star_rating_back">★★★★★</div>
           </div>
-          <div class="shop_rate rate_num"><%= @shop_rate %></div>
+          <div class="rate_num"><%= @shop_rate %></div>
         </div>
         <!-- ドロップダウンメニュー -->
         <ul class="menu">
@@ -76,15 +76,21 @@
     <div class="shop">
       <div class="shop_inner">
         <div class="shop_inner_main">
-          <%= image_tag(@shop.rectangle_image, class: "bigimg") %>
           <div class="inline">
-            <div class="slider">
+            <ul id="slider">
               <% @shop.images.rectangle.all.each do |img| %>
-                <div class="slide">
-                  <div class="slide_body"><%= image_tag(img.image.to_s, class: "smallimg")%></div>
-                </div>
+              <li class="slide-item">
+                <%= image_tag(img.image.to_s)%>
+              </li>
               <% end %>
-            </div>
+            </ul>
+            <ul id="thumbnail_slider">
+              <% @shop.images.rectangle.all.each do |img| %>
+                <li class="thumbnail-item">
+                  <%= image_tag(img.image.to_s)%>
+                </li>
+              <% end %>
+            </ul>
             <hr>
             <p class="info">店舗情報</p>
             <table>
