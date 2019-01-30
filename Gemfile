@@ -42,7 +42,6 @@ gem 'carrierwave'
 gem 'ransack'
 
 #管理画面
-gem 'rails_admin'
 gem 'cancancan'
 
 #環境変数
