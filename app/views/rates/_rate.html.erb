@@ -2,6 +2,7 @@
 <% if user_signed_in?  %>
 <div class="shop_btn">
   <div class="rate_modal" data-toggle="modal" data-target="#demoNormalModal">
+    <%= image_tag 'star.png', height: '20', class: "heartimg" %>
       行った
     </div>
   </div>
@@ -29,6 +30,7 @@
   </div>
 <% else %>
 <div class="shop_btn">
+  <%= image_tag 'white_star.png', height: '20', class: "heartimg" %>
   行った
 </div>
 <% end %>
