@@ -6,10 +6,9 @@
   <div id="user_like">
   <div class="shop_btn_alrdy">
     <%= image_tag 'heart.png', height: '20', class: "heartimg" %>
-    行きたい<br>
+    行きたい&nbsp;<%= shop.likes_count%><br>
     <p class="alrdy">
       (評価済み)
-      <%= shop.likes_count%>        
     </p>
   </div>
 </div>
