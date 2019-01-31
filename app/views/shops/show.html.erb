@@ -1,3 +1,4 @@
+<% provide(:title, @shop.shop_name) %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -79,9 +80,9 @@
           <div class="inline">
             <ul id="slider">
               <% @shop.images.rectangle.all.each do |img| %>
-              <li class="slide-item">
-                <%= image_tag(img.image.to_s)%>
-              </li>
+                <li class="slide-item">
+                  <%= image_tag(img.image.to_s)%>
+                </li>
               <% end %>
             </ul>
             <ul id="thumbnail_slider">
