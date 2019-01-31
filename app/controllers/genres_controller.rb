@@ -7,7 +7,7 @@ class GenresController < ApplicationController
   end
 
   def sushi
-    genre_shops = GenreShop.with_genres(2).map(&:shop_id)
+    genre_shops = GenreShop.with_genres(4).map(&:shop_id)
     @shops = Shop.where(id: genre_shops)
 
     @query = Shop.ransack(params[:q])
