@@ -124,8 +124,9 @@
           </div>
           <div class="shop_inner_side">
             <div class="sticky">
-              <%= image_tag 'phone.png', class: "phone"%>
-              <p class="phone"><%= @shop.tel %></p>
+              <p class="phone"><%= image_tag 'phone.png', class: "phone"%>
+              <%= @shop.tel %></p>
+              <br><br><br>
               <p class="ranking">周辺のお店ランキング</p>
               <hr>
               <a href="#"><%= image_tag '1.png', class: "rank" %>
@@ -142,6 +143,16 @@
                 <%= link_to image_tag( @rank_shops.third.square_image, width: '165', height: '165', class: 'shop'), shop_path(@rank_shops.third) %>
                 <p class="rank_shop_name"><%= link_to  @rank_shops.third.shop_name, shop_path(@rank_shops.third) %></p>
               </a><br>
+              <hr>
+              <a href="#"><%= image_tag 'ad.jpg', class: 'ad'%></a>
+              <br><br>
+              <p class="ranking">メシテロ特集</p>
+              <hr>
+              <%= link_to image_tag( @rank_shops.first.square_image, width: '165', height: '165', class: 'fea'), shop_path(@rank_shops.first) %>
+              <a href="#"><p class="fea">金沢食材を堪能！おすすめのグルメ12選</p></a>
+              <hr>
+                <%= link_to image_tag( @rank_shops.second.square_image, width: '165', height: '165', class: 'fea'), shop_path(@rank_shops.second) %>
+              <a href="#"><p class="fea">二人の距離が近づく！デートにおすすめのお店12選</p></a>
               <hr>
             </div>
           </div>
