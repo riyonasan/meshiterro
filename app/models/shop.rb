@@ -15,15 +15,19 @@ class Shop < ApplicationRecord
   scope :with_shops, ->(shop_id){ where(id: shop_id) }
 
   def rectangle_image
+    if Image.exists?
     images.rectangle.first.image.to_s
-    # if Image.exists?
-    # else
-      # 'notfound.png', width: '360'
-    # end
+    else
+      'notfound.png'
+    end
   end
 
   def square_image
-    images.square.first.image.to_s
+    if Image.exists?
+      images.square.first.image.to_s
+    else
+      'notfound.png'
+    end
   end
 
   def like_user(user_id)
